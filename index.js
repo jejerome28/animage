@@ -25,6 +25,8 @@ app.get('/', async (req,res)=>{
         
         const season_anime = await axios.get('https://api.jikan.moe/v4/seasons/now?page=1')
         const seasonAnime = season_anime.data.data;
+        
+        // console.log(req.body);
         // console.log(seasonAnime);
         res.render('home', {animes, seasonAnime});
     }catch(e){
@@ -32,7 +34,7 @@ app.get('/', async (req,res)=>{
     }
 })
 
-//get details of anime 
+//get details of anime
 app.get('/details/:id', async(req,res)=>{
     try{
         const {id} = req.params;
@@ -40,6 +42,20 @@ app.get('/details/:id', async(req,res)=>{
         const ani_details = details.data.data;
         // console.log(details);
         res.render('details', {ani_details});
+    }catch(e){
+        console.log(e.message);
+    }
+})
+
+
+//search anime
+app.post('/search', async(req,res)=>{
+ try{
+        const search = req.body.search
+        const results = await axios.get(`https://api.jikan.moe/v4/anime?q=${search}`)
+        const ani_results = results.data.data;
+        console.log(search);
+        res.render('search', {ani_results, search});
     }catch(e){
         console.log(e.message);
     }
