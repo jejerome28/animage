@@ -17,6 +17,7 @@ let config = {
 }
 
 
+//landing page. display top airing and top season anime
 app.get('/', async (req,res)=>{
     try {
         const top_anime = await axios.get('https://api.jikan.moe/v4/top/anime?filter=airing&page=1')
@@ -24,12 +25,27 @@ app.get('/', async (req,res)=>{
         
         const season_anime = await axios.get('https://api.jikan.moe/v4/seasons/now?page=1')
         const seasonAnime = season_anime.data.data;
-        console.log(seasonAnime);
+        // console.log(seasonAnime);
         res.render('home', {animes, seasonAnime});
     }catch(e){
         console.log(e.message);
     }
 })
+
+//get details of anime 
+app.get('/details/:id', async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const details = await axios.get(`https://api.jikan.moe/v4/anime/${id}`);
+        const ani_details = details.data.data;
+        // console.log(details);
+        res.render('details', {ani_details});
+    }catch(e){
+        console.log(e.message);
+    }
+})
+
+
 
 app.listen(3000, ()=>{
     console.log('listening on port 3000');

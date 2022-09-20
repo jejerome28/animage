@@ -19,7 +19,7 @@
             <h1>Top Airing Anime</h1>
             <% for( let anime of animes ) { %>
                 <ul>
-                    <img src="<%= anime.images.jpg.image_url %> " alt="<%= anime.title %> picture ">
+                    <a href="/details/<%= anime.mal_id %> " target="0"><img src="<%= anime.images.jpg.image_url %> " alt="<%= anime.title %> picture "></a>
                     <li><%= anime.title %> </li>
                 </ul>
             <% } %>
@@ -29,7 +29,7 @@
             <h1>Top Season Anime</h1>
             <% for( let season of seasonAnime ) { %>
                 <ul>
-                    <img src="<%= season.images.jpg.image_url %> " alt="<%= season.title %> picture ">
+                    <a href="/details/<%= season.mal_id %> " target="0"><img src="<%= season.images.jpg.image_url %> " alt="<%= season.title %> picture "></a>
                     <li><%= season.title %> </li>
                 </ul>
             <% } %>
