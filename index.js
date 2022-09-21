@@ -39,9 +39,11 @@ app.get('/details/:id', async(req,res)=>{
     try{
         const {id} = req.params;
         const details = await axios.get(`https://api.jikan.moe/v4/anime/${id}`);
+        const cast = await axios.get(`https://api.jikan.moe/v4/anime/${id}/characters`)
+        const cast_details = cast.data.data
         const ani_details = details.data.data;
         // console.log(details);
-        res.render('details', {ani_details});
+        res.render('details', {ani_details, cast_details});
     }catch(e){
         console.log(e.message);
     }
@@ -54,7 +56,7 @@ app.post('/search', async(req,res)=>{
         const search = req.body.search
         const results = await axios.get(`https://api.jikan.moe/v4/anime?q=${search}`)
         const ani_results = results.data.data;
-        console.log(search);
+        // console.log(search);
         res.render('search', {ani_results, search});
     }catch(e){
         console.log(e.message);
