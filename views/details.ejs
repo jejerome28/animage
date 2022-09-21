@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= ani_details.title %> </title>
-</head>
+<%- include('headers/header.ejs') %> 
 <body>
     <div class="details_content">
+
+        <a href="/">Go back</a>
         <h2><%= ani_details.title %> </h2>
         <img src="<%= ani_details.images.jpg.large_image_url%> " alt="<%= ani_details.title %> picture ">
         <p><%= ani_details.synopsis %> </p>

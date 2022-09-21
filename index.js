@@ -9,12 +9,13 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-let config = {
-    headers: {
-        Accept: 'application/json',
-        "User-Agent": "axios 0.21.1"
-    }
-}
+app.use(express.static(path.join(__dirname, '/public')));
+// let config = {
+//     headers: {
+//         Accept: 'application/json',
+//         "User-Agent": "axios 0.21.1"
+//     }
+// }
 
 
 //landing page. display top airing and top season anime
