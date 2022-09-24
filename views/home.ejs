@@ -8,24 +8,40 @@
     </form>
     
     <div class="homepage">
-        <div class="top_anime">
+        <div class="toplist top_anime">
             <h1>Top Airing Anime</h1>
-            <% for( let anime of animes ) { %>
-                <ul>
-                    <a href="/details/<%= anime.mal_id %> " target="0"><img src="<%= anime.images.jpg.image_url %> " alt="<%= anime.title %> picture "></a>
-                    <li><%= anime.title %> </li>
-                </ul>
-            <% } %>
+                
+            <div class="card_wrap">
+                
+                <% for( let anime of animes ) { %>
+                    
+                    <div class="card">
+                        
+                        <ul>
+                            <a href="/details/<%= anime.mal_id %> " target="0"><img src="<%= anime.images.jpg.large_image_url %> " alt="<%= anime.title %> picture "></a>
+                            <li><%= anime.title %> </li>
+                        </ul>
+                    </div>
+                <% } %>
+            </div>
+
         </div>
 
-        <div class="season_anime">
+        <div class="toplist season_anime">
             <h1>Top Season Anime</h1>
+            <div class="card_wrap">
+                
             <% for( let season of seasonAnime ) { %>
+                <div class="card">
+
                 <ul>
-                    <a href="/details/<%= season.mal_id %> " target="0"><img src="<%= season.images.jpg.image_url %> " alt="<%= season.title %> picture "></a>
+                    <a href="/details/<%= season.mal_id %> " target="0"><img src="<%= season.images.jpg.large_image_url %> " alt="<%= season.title %> picture "></a>
                     <li><%= season.title %> </li>
                 </ul>
+
+                </div>
             <% } %>
+            </div>
         </div>
         
     </div>
