@@ -1,5 +1,15 @@
 <%- include('headers/header.ejs') %> 
 <body>
+    <nav class="navbar">
+        <form action="/login" method="post">
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username">
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password">
+            <button type="submit">Login</button>
+            <a href="/signup">No account?, create one.</a>
+        </form>
+    </nav>
     <h1>Welcome to AniMage</h1>
     <form action="/search" method="post">
         <label for="search">Search: </label>
@@ -7,6 +17,7 @@
         <button type="submit">Go</button>
     </form>
     
+
     <div class="homepage">
         <div class="toplist top_anime">
             <h1>Top Airing Anime</h1>
