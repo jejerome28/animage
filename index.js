@@ -7,7 +7,10 @@ const user = require('./model/userModel');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const local_strategy = require('passport-local');
-// const { verify } = require('crypto');
+const session = require('express-session');
+const dbString = 'mongodb://localhost:27017/aniMage';
+const mongoStore = require('connect-mongo');
+const storeSession = mongoStore.create({mongoUrl:dbString, collectionName: 'sessions'});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -16,15 +19,25 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(session({
+    secret:'secret key',
+    resave: false,
+    saveUninitialized: true,
+    store: storeSession,
+    cookie: {
+        maxAge: 86400000
+    }
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+app.use((req, res, next)=>{
+    console.log(req.session);
+    console.log(req.user);
+    next();
+})
 
-mongoose.connect('mongodb://localhost:27017/aniMage')
-    .then(()=> {
-        console.log('connected');
-    })
-    .catch((err)=> {
-        console.log('connection error');
-        console.log(err.message);
-    })
+//create custom connection
+mongoose.createConnection(dbString, (err,result)=>{if(err)throw err; console.log('connected')})
 
 
 async function verify(username, password, done) {
@@ -48,6 +61,17 @@ async function verify(username, password, done) {
 const strat = new local_strategy(verify);
 
 passport.use(strat);
+passport.serializeUser((user,done)=>{
+    done(null, user.id);
+})
+
+passport.deserializeUser((userId, done)=>{
+    user.findById(userId)
+        .then((user)=>{
+            done(null,user);
+        })
+        .catch(err => done(err));
+})
 
 //landing page. display top airing and top season anime
 app.get('/', async (req,res)=>{
@@ -58,6 +82,7 @@ app.get('/', async (req,res)=>{
         const season_anime = await axios.get('https://api.jikan.moe/v4/seasons/now?page=1')
         const seasonAnime = season_anime.data.data;
         
+        console.log(req.session);
         res.render('home', {animes, seasonAnime});
     }catch(e){
         console.log(e.message);
@@ -114,15 +139,15 @@ app.post('/signup', async (req, res)=>{
 })
 
 //login user
-// app.post('/login', (req,res)=> {
-//     try{
-//     }catch(e){
-//         console.log(e.message);
-//     }
-    
-// }, passport.authenticate('local', {successRedirect:'/', failureRedirect:'/signup'}))
+app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/signup'})
 
-app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/signup'}));
+
+)
+
+app.get('/logout', (req,res)=>{
+    req.logOut();
+    res.redirect('/');
+})
 
 
 app.listen(3000, ()=>{
