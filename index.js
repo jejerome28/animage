@@ -83,7 +83,9 @@ app.get('/', async (req,res)=>{
         const seasonAnime = season_anime.data.data;
         
         console.log(req.session);
-        res.render('home', {animes, seasonAnime});
+        console.log(req.user);
+        const logged = req.user;
+        res.render('home', {animes, seasonAnime, logged});
     }catch(e){
         console.log(e.message);
     }
@@ -145,8 +147,13 @@ app.post('/login', passport.authenticate('local', {successRedirect:'/', failureR
 )
 
 app.get('/logout', (req,res)=>{
-    req.logOut();
-    res.redirect('/');
+    req.logOut((err)=>{
+        if(err){
+            throw err
+        }
+        res.redirect('/');
+
+    });
 })
 
 
