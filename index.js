@@ -11,6 +11,8 @@ const session = require('express-session');
 const dbString = 'mongodb://localhost:27017/aniMage';
 const mongoStore = require('connect-mongo');
 const storeSession = mongoStore.create({mongoUrl:dbString, collectionName: 'sessions'});
+const routes = require('./routes/routes');
+const method_override = require('method-override');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -18,6 +20,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+app.use(method_override('_method'));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({
     secret:'secret key',
@@ -73,88 +76,9 @@ passport.deserializeUser((userId, done)=>{
         .catch(err => done(err));
 })
 
-//landing page. display top airing and top season anime
-app.get('/', async (req,res)=>{
-    try {
-        const top_anime = await axios.get('https://api.jikan.moe/v4/top/anime?filter=airing&page=1')
-        const animes = top_anime.data.data;
-        
-        const season_anime = await axios.get('https://api.jikan.moe/v4/seasons/now?page=1')
-        const seasonAnime = season_anime.data.data;
-        
-        console.log(req.session);
-        console.log(req.user);
-        const logged = req.user;
-        res.render('home', {animes, seasonAnime, logged});
-    }catch(e){
-        console.log(e.message);
-    }
-})
+//use all routes
+app.use('/', routes);
 
-//get details of anime
-app.get('/details/:id', async(req,res)=>{
-    try{
-        const {id} = req.params;
-        const details = await axios.get(`https://api.jikan.moe/v4/anime/${id}`);
-        const cast = await axios.get(`https://api.jikan.moe/v4/anime/${id}/characters`)
-        const cast_details = cast.data.data
-        const ani_details = details.data.data;
-        
-        res.render('details', {ani_details, cast_details});
-    }catch(e){
-        console.log(e.message);
-    }
-})
-
-
-//search anime
-app.post('/search', async(req,res)=>{
- try{
-        const search = req.body.search
-        const results = await axios.get(`https://api.jikan.moe/v4/anime?q=${search}`)
-        const ani_results = results.data.data;
-     
-        res.render('search', {ani_results, search});
-    }catch(e){
-        console.log(e.message);
-    }
-})
-
-//add user
-app.get('/signup', (req,res)=>{
-    res.render('signup');
-})
-
-app.post('/signup', async (req, res)=>{
-    try{
-        const newUser = req.body.username;
-        const pword = req.body.password;
-        const hashed = await bcrypt.hash(pword, 10);
-        const newAccount = new user({username: newUser, password:hashed})
-        await newAccount.save();
-        console.log(newAccount);
-        res.redirect('/');
-
-    }catch(e){
-        console.log(e.message);
-    }
-})
-
-//login user
-app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/signup'})
-
-
-)
-
-app.get('/logout', (req,res)=>{
-    req.logOut((err)=>{
-        if(err){
-            throw err
-        }
-        res.redirect('/');
-
-    });
-})
 
 
 app.listen(3000, ()=>{
