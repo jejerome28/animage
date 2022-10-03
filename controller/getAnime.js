@@ -3,15 +3,15 @@ const axios = require('axios');
 const bcrypt = require('bcrypt');
 const user = require('../model/userModel');
 const passport = require('passport');
-
+const getAnime = require('./fetchApi');
 
 //landing page. display top airing and top season anime
 const animeHome = async (req, res) => {
     try {
-        const top_anime = await axios.get('https://api.jikan.moe/v4/top/anime?filter=airing&page=1')
+        const top_anime = await getAnime('https://api.jikan.moe/v4/top/anime', {filter: 'bypopularity', page:1})
         const animes = top_anime.data.data;
 
-        const season_anime = await axios.get('https://api.jikan.moe/v4/seasons/now?page=1')
+        const season_anime = await getAnime('https://api.jikan.moe/v4/seasons/now', {page:1})
         const seasonAnime = season_anime.data.data;
         
         console.log(req.session);
@@ -28,8 +28,8 @@ const animeHome = async (req, res) => {
 const aniDetails = async(req,res)=>{
     try{
         const {id} = req.params;
-        const details = await axios.get(`https://api.jikan.moe/v4/anime/${id}`);
-        const cast = await axios.get(`https://api.jikan.moe/v4/anime/${id}/characters`)
+        const details = await getAnime(`https://api.jikan.moe/v4/anime/${id}`);
+        const cast = await getAnime(`https://api.jikan.moe/v4/anime/${id}/characters`)
         const cast_details = cast.data.data
         const ani_details = details.data.data;
         
@@ -43,7 +43,7 @@ const aniDetails = async(req,res)=>{
 const aniSearch =  async(req,res)=>{
  try{
         const search = req.body.search
-        const results = await axios.get(`https://api.jikan.moe/v4/anime?q=${search}`)
+        const results = await getAnime(`https://api.jikan.moe/v4/anime`, {q: search})
         const ani_results = results.data.data;
      
         res.render('search', {ani_results, search});
