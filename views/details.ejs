@@ -6,12 +6,16 @@
         <h2><%= ani_details.title %> </h2>
         <img src="<%= ani_details.images.jpg.large_image_url%> " alt="<%= ani_details.title %> picture ">
         <p><%= ani_details.synopsis %> </p>
-        <% for(let cast of cast_details) { %>
-            <ul>
-                <li><img src="<%= cast.character.images.jpg.image_url %>" alt="<%= cast.character.name %> picture"> </li>
-                <li><%= cast.character.name %> - <%= cast.role %> </li>
-            </ul>
-        <% } %>
+
+        <div class="casts">
+            <% for(let cast of cast_details) { %>
+                <ul>
+                    <li><img src="<%= cast.character.images.jpg.image_url %>" alt="<%= cast.character.name %> picture"> </li>
+                    <li><%= cast.character.name %> - <%= cast.role %> </li>
+                </ul>
+            <% } %>
+
+        </div>
     </div>
 </body>
 </html>

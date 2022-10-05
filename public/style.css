@@ -54,3 +54,9 @@
     height: 300px;
     margin-bottom: 1rem;
 }
+
+.casts {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50vh;
+}
