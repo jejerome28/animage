@@ -1,11 +1,15 @@
 <%- include('headers/header.ejs') %> 
 <body>
+    <a href="/">Go back</a>
     <div class="details_content">
 
-        <a href="/">Go back</a>
-        <h2><%= ani_details.title %> </h2>
-        <img src="<%= ani_details.images.jpg.large_image_url%> " alt="<%= ani_details.title %> picture ">
-        <p><%= ani_details.synopsis %> </p>
+        
+        <div class="header">
+            <h2><%= ani_details.title %> </h2>
+            <img src="<%= ani_details.images.jpg.large_image_url%> " alt="<%= ani_details.title %> picture ">
+            <p><%= ani_details.synopsis %> </p>
+
+        </div>
 
         <div class="casts">
             <% for(let cast of cast_details) { %>

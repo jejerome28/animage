@@ -55,6 +55,16 @@
     margin-bottom: 1rem;
 }
 
+.details_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* align-content: center; */
+}
+
+.header {
+    text-align: center;
+}
 .casts {
     display: flex;
     flex-wrap: wrap;
