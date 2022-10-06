@@ -67,6 +67,22 @@
 }
 .casts {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    width: 50vh;
+    width: 75vh;
+    height: 80vh;
+    border: solid 2px green;
+    overflow-y: auto;
+}
+.cast {
+    display: flex;
+    align-items: center;
+    border: solid 2px black;
+    width: 12em;
+    margin-bottom: .75em;
+}
+
+.cast img {
+    width: 50px;
+    height: 75px;
 }

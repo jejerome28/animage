@@ -13,10 +13,15 @@
 
         <div class="casts">
             <% for(let cast of cast_details) { %>
-                <ul>
-                    <li><img src="<%= cast.character.images.jpg.image_url %>" alt="<%= cast.character.name %> picture"> </li>
-                    <li><%= cast.character.name %> - <%= cast.role %> </li>
-                </ul>
+                <div class="cast">
+                    <img src="<%= cast.character.images.jpg.image_url %>" alt="<%= cast.character.name %> picture">
+                    <span> <%= cast.character.name %> - <%= cast.role %></span>
+                </div>
+                <!-- <ul>
+                    <li><img src="<%= cast.character.images.webp.small_image_url %>" alt="<%= cast.character.name %> picture"> </li>
+                    <span> <%= cast.character.name %> - <%= cast.role %></span>
+                </ul> -->
+
             <% } %>
 
         </div>
