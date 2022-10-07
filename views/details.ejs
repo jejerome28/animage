@@ -11,18 +11,28 @@
 
         </div>
 
-        <div class="casts">
-            <% for(let cast of cast_details) { %>
-                <div class="cast">
-                    <img src="<%= cast.character.images.jpg.image_url %>" alt="<%= cast.character.name %> picture">
-                    <span> <%= cast.character.name %> - <%= cast.role %></span>
-                </div>
-                <!-- <ul>
-                    <li><img src="<%= cast.character.images.webp.small_image_url %>" alt="<%= cast.character.name %> picture"> </li>
-                    <span> <%= cast.character.name %> - <%= cast.role %></span>
-                </ul> -->
+        <div class="wrapper_cast_comment">
 
-            <% } %>
+            <div class="casts">
+                <% for(let cast of cast_details) { %>
+                    <div class="cast">
+                        <img src="<%= cast.character.images.jpg.image_url %>" alt="<%= cast.character.name %> picture">
+                        <span> <%= cast.character.name %> - <%= cast.role %></span>
+                    </div>
+                <% } %>
+            </div>
+            
+            <div class="wrapper_comment">
+                <div class="comments">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p</p>
+                </div>
+                
+                <div class="add_comment">
+                    <textarea name="addComment" id="addComment" cols="30" rows="10" maxlength="150" placeholder="Describe this anime in 150 characters"></textarea><br>
+                    <span id="counter">0</span><span>/150</span>
+                </div>
+
+            </div>
 
         </div>
     </div>
