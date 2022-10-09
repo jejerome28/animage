@@ -1,4 +1,4 @@
-<%- include('headers/header.ejs') %> 
+<%- include('headers/header.ejs') %>
 <body>
     <a href="/">Go back</a>
     <div class="details_content">
@@ -28,13 +28,18 @@
                 </div>
                 
                 <div class="add_comment">
-                    <textarea name="addComment" id="addComment" cols="30" rows="10" maxlength="150" placeholder="Describe this anime in 150 characters"></textarea><br>
-                    <span id="counter">0</span><span>/150</span>
+                    
+                    <form action="<%= ani_details.mal_id %>/post_comment" method="post">
+                        <textarea name="addComment" id="addComment" cols="30" rows="10" maxlength="150" placeholder="Describe this anime in 150 characters"></textarea><br>
+                        <span id="counter">0</span><span>/150</span>
+                        <button type="submit">comment!</button>
+                    </form>
                 </div>
 
             </div>
 
         </div>
     </div>
+    <script src="/public/script.js"></script>
 </body>
 </html>
