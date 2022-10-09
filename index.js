@@ -36,11 +36,11 @@ auth(
     passport,
     username => user.findOne({username})
 )
-app.use((req, res, next)=>{
-    console.log(req.session);
-    console.log(req.user);
-    next();
-})
+// app.use((req, res, next)=>{
+//     console.log(req.session);
+//     console.log(req.user);
+//     next();
+// })
 
 //create custom connection
 mongoose.createConnection(dbString, (err,result)=>{if(err)throw err; console.log('connected')})
