@@ -1,9 +1,10 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const user = require('../model/userModel');
-const comment = require('../model/userModel');
+const comment = require('../model/commentModel');
 const passport = require('passport');
 const getAnime = require('./fetchApi');
+const { default: mongoose } = require('mongoose');
 
 //landing page. display top airing and top season anime
 const animeHome = async (req, res) => {
@@ -45,8 +46,7 @@ const postComment = async(req,res)=>{
     try{
         const {id} = req.params;
         const text_comment = req.body.addComment;
-        console.log(typeof text_comment);req.user.id
-        const new_comment = new comment({anime_id: id, comments: text_comment, user_id: req.user.id})
+        const new_comment = new comment({anime_id: id, body: text_comment, user_id: req.user.id})
         await new_comment.save();
         console.log(new_comment);
     }catch(e){

@@ -4,7 +4,7 @@ const user = require('./userModel');
 
 const commentSchema = new mongoose.Schema({
     anime_id: String,
-    comments: String,
+    body: String,
     user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'user'}
 })
 
