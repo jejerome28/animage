@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const {user, comment} = require('../model')
 const passport = require('passport');
 const getAnime = require('./fetchApi');
+const {getComments} = require('./populateComment');
 
 
 //landing page. display top airing and top season anime
@@ -13,9 +14,6 @@ const animeHome = async (req, res) => {
         const season_anime = await getAnime('https://api.jikan.moe/v4/seasons/now', {page:1})
         const seasonAnime = season_anime.data.data;
         
-        console.log(req.session);
-        console.log(req.user);
-        // console.log(req.user.id)
         const logged = req.user;
         res.render('home', {animes, seasonAnime, logged});
     }catch(e){
@@ -32,13 +30,10 @@ const aniDetails = async(req,res)=>{
         const cast = await getAnime(`https://api.jikan.moe/v4/anime/${id}/characters`)
         const cast_details = cast.data.data
         const ani_details = details.data.data;
-        const getComments = await comment
-        .find({anime_id: id})
-        .populate({path: 'user_id', select: 'username', model:user});
-
-        console.log(getComments);
         
-        res.render('details', {ani_details, cast_details,getComments});
+        const comments = await getComments(id,user)
+        
+        res.render('details', {ani_details, cast_details,comments});
     }catch(e){
         console.log(e.message);
     }
