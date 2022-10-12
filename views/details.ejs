@@ -27,6 +27,7 @@
                     <% for(let comment of getComments) { %> 
                     <div class="comments">
                         <p><%= comment.body %> </p>
+                        <span><%= comment.user_id.username %> </span>
                     </div>
                     <% } %> 
                 </div>
