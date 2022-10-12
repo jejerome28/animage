@@ -34,9 +34,13 @@ const aniDetails = async(req,res)=>{
         const cast = await getAnime(`https://api.jikan.moe/v4/anime/${id}/characters`)
         const cast_details = cast.data.data
         const ani_details = details.data.data;
+        const getComments = await comment
+        .find({anime_id: id})
+        .populate({path: 'user_id', select: 'username', model:user});
+
+        console.log(getComments);
         
-        // console.log(cast_details[0].character);
-        res.render('details', {ani_details, cast_details});
+        res.render('details', {ani_details, cast_details,getComments});
     }catch(e){
         console.log(e.message);
     }
@@ -49,6 +53,7 @@ const postComment = async(req,res)=>{
         const new_comment = new comment({anime_id: id, body: text_comment, user_id: req.user.id})
         await new_comment.save();
         console.log(new_comment);
+        res.redirect(`/details/${id}`);
     }catch(e){
         console.log(e);
     }

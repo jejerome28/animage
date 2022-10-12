@@ -24,9 +24,11 @@
             
             <div class="wrapper_comment">
                 <div class="wrap">
+                    <% for(let comment of getComments) { %> 
                     <div class="comments">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis p</p>
+                        <p><%= comment.body %> </p>
                     </div>
+                    <% } %> 
                 </div>
                 
                 <div class="add_comment">
