@@ -99,7 +99,7 @@
 }
 
 .wrapper_comment .comments {
-    width: 50vh;
+    width: 45vh;
     border: solid 2px blue;
     margin-bottom: 1em;
 }
@@ -108,5 +108,5 @@
     width: 50vh;
     height: 55vh;
     border: 2px solid orange;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
