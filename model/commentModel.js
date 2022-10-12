@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const conn = mongoose.createConnection('mongodb://localhost:27017/aniMage')
-const user = require('./userModel');
 
 const commentSchema = new mongoose.Schema({
     anime_id: String,

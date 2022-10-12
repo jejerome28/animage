@@ -1,8 +1,7 @@
 const express = require('express');
-const { animeHome, aniDetails, aniSearch, signupPage, signupPost, login, logout, postComment, loginPage } = require('../controller/getAnime');
+const { animeHome, aniDetails, aniSearch, signupPage, signupPost, login, logout, postComment, loginPage } = require('../controller');
 const router = express.Router();
-const checkAuth = require('../middleware/checkAuth');
-const checkNotAuth = require('../middleware/checkNotAuth');
+const {checkAuth, checkNotAuth} = require('../middleware')
 
 
 router.get('/', animeHome)

@@ -1,10 +1,8 @@
-const express = require('express');
 const bcrypt = require('bcrypt');
-const user = require('../model/userModel');
-const comment = require('../model/commentModel');
+const {user, comment} = require('../model')
 const passport = require('passport');
 const getAnime = require('./fetchApi');
-const { default: mongoose } = require('mongoose');
+
 
 //landing page. display top airing and top season anime
 const animeHome = async (req, res) => {

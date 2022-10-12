@@ -2,15 +2,16 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-const user = require('./model/userModel');
+const {user} = require('./model');
 const passport = require('passport');
 const session = require('express-session');
 const dbString = 'mongodb://localhost:27017/aniMage';
 const mongoStore = require('connect-mongo');
 const storeSession = mongoStore.create({mongoUrl:dbString, collectionName: 'sessions'});
-const routes = require('./routes/routes');
+const routes = require('./routes');
 const method_override = require('method-override');
-const auth = require('./controller/auth');
+const {auth} = require('./controller');
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -36,11 +37,6 @@ auth(
     passport,
     username => user.findOne({username})
 )
-// app.use((req, res, next)=>{
-//     console.log(req.session);
-//     console.log(req.user);
-//     next();
-// })
 
 //create custom connection
 mongoose.createConnection(dbString, (err,result)=>{if(err)throw err; console.log('connected')})
