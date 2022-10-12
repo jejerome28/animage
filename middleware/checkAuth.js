@@ -3,7 +3,7 @@ const checkAuth = (req,res,next) => {
         return next()
     }
     
-    res.redirect('/')
+    res.redirect('/login')
 }
 
 module.exports = checkAuth;

@@ -94,6 +94,11 @@ const signupPost = async (req, res)=>{
     }
 }
 
+//login page
+const loginPage = (req,res)=>{
+    res.render('loginPage');
+}
+
 // authenticate login credentials
 const login = passport.authenticate('local', {successRedirect:'/', failureRedirect:'/signup'})
 
@@ -116,6 +121,7 @@ module.exports = {
     signupPage,
     signupPost,
     login,
-    logout
+    logout,
+    loginPage
 }
 
