@@ -27,7 +27,7 @@
                     <% for(let comment of comments) { %> 
                     <div class="comments">
                         <p><%= comment.body %> </p>
-                        <span><%= comment.user_id.username %> </span>
+                        <span><a href="/profile/<%= comment.user_id.id %> "><%= comment.user_id.username %></a> </span>
                     </div>
                     <% } %> 
                 </div>

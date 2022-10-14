@@ -1,6 +1,6 @@
 const passport = require('passport');
 const getAnime = require('./fetchApi');
-const {getComments} = require('./populateCommentUser');
+const {getComments, getUserComments} = require('./populateCommentUser');
 const {addToUserComments} = require('./postCommentUser');
 const {createComment, createUser} = require('./createDoc');
 
@@ -30,6 +30,18 @@ const aniDetails = async(req,res)=>{
         res.render('details', {ani_details, cast_details,comments});
     }catch(e){
         console.log(e.message);
+    }
+}
+
+//get user profile
+const userProfile = async (req, res)=> {
+    try{
+        const {id} = req.params;
+        const logged =req.user;
+        const profile = await getUserComments(id);
+        res.render('profile', {logged, profile});
+    }catch(e){
+        console.log(e);
     }
 }
 
@@ -103,6 +115,7 @@ module.exports = {
     signupPost,
     login,
     logout,
-    loginPage
+    loginPage,
+    userProfile
 }
 

@@ -108,5 +108,17 @@
     width: 50vh;
     height: 55vh;
     border: 2px solid orange;
-    overflow-y: scroll;
+    overflow-y: auto;
+}
+
+.comments_made_wrap {
+    width: 50vh;
+    height: 55vh;
+    overflow-y: auto;
+    border: 2px solid pink;
+}
+.comments_made {
+    width: 45vh;
+    border: solid 2px blue;
+    margin-bottom: 1em;
 }
