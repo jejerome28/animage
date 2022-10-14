@@ -10,8 +10,7 @@ const animeHome = async (req, res) => {
     try {
         const animes = await getAnime('https://api.jikan.moe/v4/top/anime', {filter: 'bypopularity', page:1})
         const seasonAnime = await getAnime('https://api.jikan.moe/v4/seasons/now', {page:1})
-        const logged = req.user;
-        res.render('home', {animes, seasonAnime, logged});
+        res.render('home', {animes, seasonAnime, logged:req.user});
         
     }catch(e){
         console.log(e.message);
@@ -37,9 +36,8 @@ const aniDetails = async(req,res)=>{
 const userProfile = async (req, res)=> {
     try{
         const {id} = req.params;
-        const logged =req.user;
         const profile = await getUserComments(id);
-        res.render('profile', {logged, profile});
+        res.render('profile', {logged:req.user, profile});
     }catch(e){
         console.log(e);
     }
