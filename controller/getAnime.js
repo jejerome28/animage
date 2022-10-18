@@ -11,7 +11,7 @@ const animeHome = async (req, res) => {
         const animes = await getAnime('https://api.jikan.moe/v4/top/anime', {filter: 'bypopularity', page:1})
         const seasonAnime = await getAnime('https://api.jikan.moe/v4/seasons/now', {page:1})
         res.render('home', {animes, seasonAnime, logged:req.user});
-        
+        console.log(req.user);
     }catch(e){
         console.log(e.message);
     }

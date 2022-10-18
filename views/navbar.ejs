@@ -4,6 +4,7 @@
         </h1>
         <form action="/logout?_method=DELETE" method="post">
             <button type="submit">Log out</button>
+            <span><a href="/profile/<%= logged.id %> ">Profile</a></span>
         </form>
         <% } else {%>
             <form action="/login" method="post">
