@@ -59,7 +59,7 @@ const postComment = async(req,res)=>{
 
 //search anime
 const aniSearch =  async(req,res)=>{
- try{
+try{
         const ani_results = await getAnime(`https://api.jikan.moe/v4/anime`, {q: req.body.search})
         res.render('search', {ani_results, search:req.body.search});
      
