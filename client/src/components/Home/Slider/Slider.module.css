@@ -1,0 +1,7 @@
+.wrapper {
+    display: flex;
+    border: solid 2px aqua;
+    width: 70%;
+    height: 25vh;
+    margin-bottom: 3em;
+}
