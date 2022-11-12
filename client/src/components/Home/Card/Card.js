@@ -1,12 +1,11 @@
 import React from "react";
 import style from './Card.module.css'
-import axios from 'axios'
 
 const Card = ({anime})=>{
     return(
         <>
         <div className={style.card}>
-            <img src={anime.images.webp.small_image_url} alt='anime pic' ></img>
+            <img src={anime.images.webp.image_url} alt='anime pic' ></img>
             <p>{anime.title}</p>
         </div>
         </>
