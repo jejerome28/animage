@@ -1,7 +1,8 @@
 .wrapper {
     display: flex;
     border: solid 2px aqua;
-    width: 70%;
-    height: 25vh;
+    width: 100vh;
+    height: 45vh;
     margin-bottom: 3em;
+    overflow: auto;
 }
