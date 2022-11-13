@@ -1,0 +1,13 @@
+.list {
+    display: flex;
+    border: 2px solid yellow;
+    margin-bottom: 1em;
+}
+.list img {
+    height: 20vh;
+    width: 15vh;
+}
+
+.title {
+    margin-bottom: 2em;
+}

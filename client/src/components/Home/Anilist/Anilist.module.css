@@ -1,12 +1,9 @@
 .wrapper {
     display: flex;
-    border: solid 2px aqua;
+    border: solid 2px magenta;
     width: 100vh;
-    height: 35vh;
     margin-bottom: 3em;
     overflow: auto;
-}
+    flex-direction: column;
 
-.title {
-    margin-bottom: 2em;
 }
