@@ -1,13 +1,24 @@
 .list {
     display: flex;
-    border: 2px solid yellow;
+    border: 2px solid black;
     margin-bottom: 1em;
+    height: 10.5vh;
 }
 .list img {
-    height: 20vh;
-    width: 15vh;
+    height: 10vh;
+    width: 7vh;
+    margin-right: 1em;
 }
 
 .title {
     margin-bottom: 2em;
+}
+
+.details p {
+    margin-top: .2em;
+    margin-bottom: 3em;
+}
+
+.details span {
+    margin-right: 1em;
 }

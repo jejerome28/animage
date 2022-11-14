@@ -1,11 +1,12 @@
 .card {
     border: solid 2px green;
-    height: 25vh;
-    width: 15vh;
+    margin-right: 1em;
+    text-align: center;
 }
 
 .card img {
-    height: 20vh;
-    width: 15vh;
+    height: 150px;
+    width: 120px;
 }
+
 
