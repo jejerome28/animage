@@ -6,7 +6,10 @@ const ListItem = ({anime})=>{
         <>
         <div className={style.list}>
                 <img src={anime.images.webp.image_url} alt='anime pic' ></img>
-                <p>{anime.title}</p>
+                <div className={style.details}>
+                    <p>{anime.title}</p>
+                    {anime.genres.map(genre => (<span>{genre.name}</span>))}
+                </div>
         </div>
         </>
     )

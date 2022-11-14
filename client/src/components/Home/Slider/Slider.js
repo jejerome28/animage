@@ -11,7 +11,7 @@ const Slider = () =>{
     
     const getSznAni = async ()=> {
         const sznAni = await getAnime('https://api.jikan.moe/v4/seasons/now', {page:1})
-        setResult(sznAni.slice(0,7))
+        setResult(sznAni.slice(0,10))
     }
     
 

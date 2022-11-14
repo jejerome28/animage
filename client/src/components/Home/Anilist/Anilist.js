@@ -9,8 +9,8 @@ const Anilist = ()=>{
     const [anilist, setAnilist] = useState([])
 
     const getTopAni = async ()=> {
-        const topAni = await getAnime('https://api.jikan.moe/v4/top/anime', {filter: 'bypopularity', page:1})
-        setAnilist(topAni)
+        const topAni = await getAnime('https://api.jikan.moe/v4/top/anime', {filter: 'favorite', page:1});
+        setAnilist(topAni);
     }
     
 
