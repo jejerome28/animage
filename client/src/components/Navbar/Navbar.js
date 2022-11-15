@@ -1,14 +1,15 @@
 import React from "react";
 import style from './Navbar.module.css'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return(
         <>
         <div className={style.wrapper}>
-            <a href="/">Logo</a>
-            <a href="/">Home</a>
-            <a href="/browse">Browse</a>
-            <a href="/forum">Forum</a>
+            <Link to='/'>Logo</Link>
+            <Link to='/'>Home</Link>
+            <Link to='/browse'>Browse</Link>
+            <Link to='/forum'>Forum</Link>
             <button className="login">Login</button>
         </div>
         </>
