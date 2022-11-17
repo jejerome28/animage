@@ -103,6 +103,7 @@ const logout = (req,res)=>{
     });
 }
 
+//export functions
 module.exports = {
     animeHome,
     aniDetails,
