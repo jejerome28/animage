@@ -11,10 +11,12 @@ const storeSession = mongoStore.create({mongoUrl:dbString, collectionName: 'sess
 const routes = require('./routes');
 const method_override = require('method-override');
 const {auth} = require('./controller');
+const cors = require('cors')
 
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -47,6 +49,6 @@ app.use('/', routes);
 
 
 
-app.listen(3000, ()=>{
-    console.log('listening on port 3000');
+app.listen(5000, ()=>{
+    console.log('listening on port 5000');
 })

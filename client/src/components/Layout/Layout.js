@@ -16,6 +16,7 @@ const Layout = ()=> {
             <div className={style.home}>
                 <Routes>
                     <Route index element={<Home/>}/>
+                    {/* to show details components when an anime link is clicked */}
                     <Route path="/details/:id" element={<Details/>}/>
                 </Routes>
             </div>

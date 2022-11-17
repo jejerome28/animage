@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import style from './Slider.module.css'
 import Card from "../Card/Card";
-import getAnime from "../../../api/fetch";
+import { getSznAni } from "../../../actions/getData";
 import Title from "../../Title/Title";
 
 
@@ -9,14 +9,8 @@ import Title from "../../Title/Title";
 const Slider = () =>{
     const[results, setResult]=useState([])
     
-    const getSznAni = async ()=> {
-        const sznAni = await getAnime('https://api.jikan.moe/v4/seasons/now', {page:1})
-        setResult(sznAni.slice(0,10))
-    }
-    
-
     useEffect(()=>{
-        getSznAni()
+        getSznAni(setResult)
     },[])
     
 

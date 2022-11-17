@@ -7,7 +7,7 @@ const getAnime = async (url, params={}) => {
             method: 'GET',
             params: params
         })
-        return results.data.data
+        return results.data
     }
     catch(e){
         console.log(e.message)
