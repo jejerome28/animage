@@ -29,7 +29,7 @@ const aniDetails = async(req,res)=>{
         const comments = await getComments(id)
         
         // res.render('details', {ani_details, cast_details,comments});
-        res.status(200).json(ani_details, cast_details)
+        res.status(200).json({ani_details, cast_details})
     }catch(e){
         res.status(404).json({message: e.message})
         console.log(e.message);
