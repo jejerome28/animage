@@ -1,21 +1,15 @@
 import React, {useState, useEffect} from "react";
 import style from './Anilist.module.css'
-import getAnime from "../../../api/fetch";
 import ListItem from "./ListItem/ListItem";
 import Title from "../../Title/Title";
+import { getTopAni } from "../../../actions/getData";
 
 
 const Anilist = ()=>{
     const [anilist, setAnilist] = useState([])
 
-    const getTopAni = async ()=> {
-        const topAni = await getAnime('https://api.jikan.moe/v4/top/anime', {filter: 'favorite', page:1});
-        setAnilist(topAni);
-    }
-    
-
     useEffect(()=>{
-        getTopAni()
+        getTopAni(setAnilist)
     },[])
     
    return(
