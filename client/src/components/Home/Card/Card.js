@@ -1,14 +1,15 @@
 import React from "react";
 import style from './Card.module.css'
+import {Link} from 'react-router-dom'
 
 const Card = ({anime})=>{
     return(
         <>
         <div className={style.card}>
-            <a href="/#">
-            <img src={anime.images.webp.image_url} alt='anime pic' ></img>
-            </a>
-            <p>{anime.title}</p>
+            <Link to={`/details/`+ anime.mal_id}>
+                <img src={anime.images.webp.image_url} alt='anime pic' ></img>
+            </Link>
+                <p>{anime.title}</p>
         </div>
         </>
     )
