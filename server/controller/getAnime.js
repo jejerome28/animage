@@ -8,7 +8,7 @@ const {createComment, createUser} = require('./createDoc');
 //landing page display top airing and top season anime
 const animeHome = async (req, res) => {
     try {
-        const topAnimes = await getAnime('https://api.jikan.moe/v4/top/anime', {filter: 'bypopularity', page:1})
+        const topAnimes = await getAnime('https://api.jikan.moe/v4/top/anime', {filter: 'airing', page:1})
         const seasonAnime = await getAnime('https://api.jikan.moe/v4/seasons/now', {page:1})
         // res.render('home', {animes, seasonAnime, logged:req.user});
         // console.log(req.user);

@@ -2,6 +2,13 @@ import React from "react";
 import { getDetails } from "../../actions/getData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Image from "./components/Image";
+import style from './Details.module.css'
+import AnimeDetails from "./components/AnimeDetails";
+import Synopsis from "./components/Synopsis";
+import VoiceActors from "./components/VoiceActors";
+import Characters from "./components/Characters";
+
 
 const Details = ()=>{
 
@@ -12,12 +19,32 @@ const Details = ()=>{
         getDetails(setDetails,id);
     },[id])
 
-    //TODO use the objects rendered to display details
-    //not working right now check how to render object using object keys tom
+    //to use the objects rendered to display details
     return(
         <>
-        <h1>Details</h1>
-        <p>{allDetails.ani_details.title_english}</p>
+        <div className={style.wrapper}>
+            {allDetails.ani_details  ?  
+            <Image anime={allDetails.ani_details}/> : (<h1>loading..</h1>)}
+
+            {allDetails.ani_details  ?  
+            <AnimeDetails details={allDetails.ani_details}/> : (<h1>loading..</h1>)}
+
+            {allDetails.ani_details  ?  
+            <Synopsis synopsis={allDetails.ani_details}/> : (<h1>loading..</h1>)}
+        
+        
+            <div className={style._wrap + ' va'}>
+            {allDetails.cast_details ?
+            allDetails.cast_details.map(actor=> (<VoiceActors actors={actor} key={actor.mal_id}/>)): (<h1>loading..</h1>)}
+            </div>
+
+           <div className={style._wrap + ' cast'}>
+            {allDetails.cast_details ? 
+                allDetails.cast_details.map(cast => (<Characters casts={cast} key={cast.character.mal_id}/>)) : (<h1>loading..</h1>)
+            }
+            </div>
+            
+        </div>
         </>
     )
 }
