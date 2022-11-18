@@ -1,0 +1,32 @@
+import React from "react";
+import style from '../Details.module.css'
+
+
+const VoiceActors = ({actors})=>{
+    return(
+       <>
+
+                {/* {actors.voice_actors.map(va=>(
+                <div className={style.va}>
+                    <img src={va.person.images.jpg.image_url}
+                    alt={va.person.name + ' pic'} key={va.person.mal_id}>
+                    </img> 
+                    <p>{va.person.name}</p>
+                </div>)
+                ).slice(0,1)} */}
+            
+                <div className={style.va}>
+                    {actors.voice_actors.map(va=>(
+                        <img src={va.person.images.jpg.image_url}
+                        alt={va.person.name + ' pic'} key={va.person.mal_id}>
+                        </img> 
+                    )).slice(0,1)}
+                    {actors.voice_actors.map(va=>(
+                        <p>{va.person.name}</p>
+                    )).slice(0,1)}
+                </div>
+       </> 
+    )
+}
+
+export default VoiceActors;

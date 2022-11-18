@@ -1,0 +1,38 @@
+.img_wrap img {
+    width: 250px;
+    height: 400px;
+}
+
+.ani_details {
+    border: solid 2px brown;
+}
+
+.synopsis {
+    border: solid 2px violet;
+}
+
+._wrap {
+    border: solid 2px red;
+    margin-bottom: 1em;
+}
+
+
+.characters {
+    border: solid 2px green;
+    margin-bottom: 1em;
+}
+
+.characters img{
+    width: 100px;
+    height: 100px;
+}
+
+.va {
+    border: solid 2px black;
+    margin-bottom: 1em;
+}
+
+.va img{
+    width: 100px;
+    height: 100px;
+}
