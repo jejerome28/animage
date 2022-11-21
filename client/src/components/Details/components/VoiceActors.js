@@ -1,8 +1,9 @@
 import React from "react";
 import style from '../Details.module.css'
-
+import PropTypes from 'prop-types'
 
 const VoiceActors = ({actors})=>{
+    const {voice_actors} = actors;
     return(
        <>
 
@@ -16,16 +17,27 @@ const VoiceActors = ({actors})=>{
                 ).slice(0,1)} */}
             
                 <div className={style.va}>
-                    {actors.voice_actors.map(va=>(
+                    {voice_actors.map(va=>(
                         <img src={va.person.images.jpg.image_url}
                         alt={va.person.name + ' pic'} key={va.person.mal_id}>
                         </img> 
                     )).slice(0,1)}
-                    {actors.voice_actors.map(va=>(
-                        <p>{va.person.name}</p>
+                    {voice_actors.map(va=>(
+                        <p key={va.person.mal_id}>{va.person.name}</p>
                     )).slice(0,1)}
                 </div>
        </> 
+    )
+}
+
+VoiceActors.PropTypes = {
+    actors: PropTypes.objectOf(
+        PropTypes.oneOfType([
+            PropTypes.object,
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.array
+        ])
     )
 }
 

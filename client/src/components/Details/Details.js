@@ -8,6 +8,7 @@ import AnimeDetails from "./components/AnimeDetails";
 import Synopsis from "./components/Synopsis";
 import VoiceActors from "./components/VoiceActors";
 import Characters from "./components/Characters";
+import PropTypes from 'prop-types'
 
 
 const Details = ()=>{
@@ -47,6 +48,10 @@ const Details = ()=>{
         </div>
         </>
     )
+}
+
+Details.PropTypes = {
+    allDetails: PropTypes.object
 }
 
 export default Details;

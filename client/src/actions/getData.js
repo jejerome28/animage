@@ -29,7 +29,7 @@ export const getDetails = async(set_state,id) => {
     try{
         const details = await getAnime(`${url}/details/${id}`);
         set_state(details);
-        console.log(details.cast_details[0].voice_actors[0].person.images);
+        console.log(details.cast_details);
         
     }catch(e){
         console.log(e)

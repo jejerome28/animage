@@ -1,6 +1,7 @@
 import React from "react";
-import style from '../Details.module.css'
+import style from '../Details.module.css';
 import Title from "../../Title/Title";
+import propType from 'prop-types';
 
 const Image = ({anime})=>{
     return(
@@ -11,6 +12,10 @@ const Image = ({anime})=>{
 
             
     )
+}
+
+Image.propType = {
+    anime: propType.objectOf(propType.string)
 }
 
 export default Image;
