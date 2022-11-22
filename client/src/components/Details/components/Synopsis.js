@@ -1,6 +1,6 @@
 import React from "react";
 import style from '../Details.module.css'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 
 const Synopsis = ({synopsis})=>{
@@ -15,7 +15,7 @@ const Synopsis = ({synopsis})=>{
 
 
 Synopsis.propTypes = {
-    synopsis: propTypes.object
+    synopsis: PropTypes.string
 }
 
 export default Synopsis;

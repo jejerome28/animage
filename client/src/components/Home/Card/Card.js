@@ -1,6 +1,7 @@
 import React from "react";
 import style from './Card.module.css'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const Card = ({anime})=>{
     return(
@@ -13,6 +14,10 @@ const Card = ({anime})=>{
         </div>
         </>
     )
+}
+
+Card.propTypes = {
+    anime: PropTypes.object
 }
 
 export default Card

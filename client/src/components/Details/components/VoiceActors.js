@@ -30,15 +30,8 @@ const VoiceActors = ({actors})=>{
     )
 }
 
-VoiceActors.PropTypes = {
-    actors: PropTypes.objectOf(
-        PropTypes.oneOfType([
-            PropTypes.object,
-            PropTypes.string,
-            PropTypes.number,
-            PropTypes.array
-        ])
-    )
+VoiceActors.propTypes = {
+    actors: PropTypes.object
 }
 
 export default VoiceActors;

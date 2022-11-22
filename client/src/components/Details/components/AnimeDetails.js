@@ -1,5 +1,6 @@
 import React from "react";
 import style from '../Details.module.css'
+import PropTypes from 'prop-types'
 
 const AnimeDetails = ({details})=>{
     return(
@@ -12,6 +13,10 @@ const AnimeDetails = ({details})=>{
         </div>
         </>
     )
+}
+
+AnimeDetails.propTypes = {
+    details: PropTypes.object
 }
 
 export default AnimeDetails;

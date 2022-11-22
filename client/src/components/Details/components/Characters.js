@@ -1,5 +1,6 @@
 import React from "react";
 import style from '../Details.module.css'
+import PropTypes from 'prop-types'
 
 const Characters = ({casts})=> {
     return(
@@ -11,6 +12,10 @@ const Characters = ({casts})=> {
         </div>
         </>
     )
+}
+
+Characters.propTypes ={
+    casts: PropTypes.object
 }
 
 export default Characters;

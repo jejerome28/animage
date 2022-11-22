@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import style from './ListItem.module.css'
+import PropTypes from 'prop-types'
 
 const ListItem = ({anime})=>{
     return(
@@ -15,5 +16,10 @@ const ListItem = ({anime})=>{
         </>
     )
 }
+
+ListItem.propTypes = {
+    anime: PropTypes.object
+}
+
 
 export default ListItem
