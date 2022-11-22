@@ -50,7 +50,7 @@ const Details = ()=>{
     )
 }
 
-Details.PropTypes = {
+Details.propTypes = {
     allDetails: PropTypes.object
 }
 
