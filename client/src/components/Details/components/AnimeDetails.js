@@ -10,6 +10,9 @@ const AnimeDetails = ({details})=>{
             <p>Score: {details.score}</p>
             <p>Rating: {details.rating}</p>
             <p>Studio: {details.studios[0].name}</p>
+            <p>Episodes: {details.episodes}</p>
+            <p>Status: {details.status}</p>
+
         </div>
         </>
     )
