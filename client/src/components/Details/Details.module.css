@@ -2,7 +2,15 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: .5em;
-    row-gap: .5em;
+    height: 100vh;
+}
+
+.wrap1 {
+    grid-column: 2/5;
+}
+
+.wrap2 {
+    grid-column: 6/12;
 }
 
 .img_wrap {
@@ -16,19 +24,17 @@
 
 .ani_details {
     border: solid 2px brown;
-    grid-column: 2/5;
 }
 
 .synopsis {
     border: solid 2px violet;
-    grid-column: 6/12;
-    grid-row: 1;
 }
 
 .character_wrap {
     border: solid 2px red;
     margin-bottom: 1em;
-    grid-column: 6/12;
+    height: 50vh;
+    overflow: scroll;
 }
 
 
