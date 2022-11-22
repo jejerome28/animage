@@ -3,16 +3,18 @@ import style from '../Details.module.css'
 import PropTypes from 'prop-types'
 
 const AnimeDetails = ({details})=>{
+    const {genres} = details;
+    const {studios} = details;
     return(
         <>
         <div className={style.ani_details}>
             <p>Date aired: {details.aired.string}</p>
             <p>Score: {details.score}</p>
             <p>Rating: {details.rating}</p>
-            <p>Studio: {details.studios[0].name}</p>
+            <span>Studios: </span>{studios.map(studio => (<span key={studio.mal_id}>{studio.name}</span>))}
             <p>Episodes: {details.episodes}</p>
             <p>Status: {details.status}</p>
-
+            <span>Genres: </span>{genres.map(genre => (<span key={genre.mal_id}>{genre.name}</span>))}
         </div>
         </>
     )
