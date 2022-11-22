@@ -35,7 +35,7 @@ const Details = ()=>{
             {ani_details  ?  
             <Synopsis synopsis={ani_details}/> : (<h1>loading..</h1>)}
         
-           <div className={style._wrap + ' cast'}>
+           <div className={style.character_wrap + ' cast'}>
             {cast_details ? 
                 cast_details.map(cast => (<Characters casts={cast} key={cast.character.mal_id}/>)) : (<h1>loading..</h1>)
             }

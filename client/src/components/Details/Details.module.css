@@ -1,3 +1,14 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* grid-template-rows: 1fr; */
+    column-gap: .5em;
+}
+
+.img_wrap {
+    border: solid 2px orange;
+    grid-column: 2/5;
+}
 .img_wrap img {
     width: 250px;
     height: 400px;
@@ -5,15 +16,19 @@
 
 .ani_details {
     border: solid 2px brown;
+    grid-column: 2/5;
 }
 
 .synopsis {
     border: solid 2px violet;
+    grid-column: 6/12;
+    grid-row: 1;
 }
 
-._wrap {
+.character_wrap {
     border: solid 2px red;
     margin-bottom: 1em;
+    grid-column: 6/12;
 }
 
 
