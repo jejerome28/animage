@@ -3,6 +3,7 @@ const getAnime = require('./fetchApi');
 const {getComments, getUserComments} = require('./populateCommentUser');
 const {addToUserComments} = require('./postCommentUser');
 const {createComment, createUser} = require('./createDoc');
+const { comment } = require('../model');
 
 
 //landing page display top airing and top season anime
@@ -29,7 +30,8 @@ const aniDetails = async(req,res)=>{
         const comments = await getComments(id)
         
         // res.render('details', {ani_details, cast_details,comments});
-        res.status(200).json({ani_details, cast_details})
+        res.status(200).json({ani_details, cast_details, comments})
+        console.log(comments);
     }catch(e){
         res.status(404).json({message: e.message})
         console.log(e.message);
