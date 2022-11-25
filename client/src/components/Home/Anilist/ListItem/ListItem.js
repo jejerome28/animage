@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import style from './ListItem.module.css'
+import style from '../Anilist.module.scss'
 import PropTypes from 'prop-types'
 
 const ListItem = ({anime})=>{

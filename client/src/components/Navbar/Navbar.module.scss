@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    border: solid 2px red;
+    justify-content: center;
+    margin-bottom: 1em;
+
+    a {
+        color: red;
+        margin: 1em;
+        &:hover {
+            color: black;
+        }
+        &:first-child {
+            margin-right: 3em;
+            }
+    }
+    
+    button {
+        margin-left: 3em;
+        cursor: pointer;
+        padding: .5em 1em;
+    }
+}
+
+

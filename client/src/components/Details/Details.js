@@ -3,7 +3,7 @@ import { getDetails } from "../../actions/getData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Image from "./components/Image";
-import style from './Details.module.css'
+import style from './Details.module.scss'
 import AnimeDetails from "./components/AnimeDetails";
 import Synopsis from "./components/Synopsis";
 import Characters from "./components/Characters";

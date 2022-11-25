@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import style from './Slider.module.css'
+import style from './Slider.module.scss'
 import Card from "../Card/Card";
 import { getSznAni } from "../../../actions/getData";
 import Title from "../../Title/Title";

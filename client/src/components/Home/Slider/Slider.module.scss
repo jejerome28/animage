@@ -1,8 +1,8 @@
 .wrapper {
     display: flex;
-    border: solid 2px magenta;
+    border: solid 2px pink;
     width: 100vh;
     margin-bottom: 3em;
-    flex-direction: column;
-
+    overflow: auto;
 }
+

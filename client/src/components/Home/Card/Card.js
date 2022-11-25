@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import style from './Card.module.css'
+import style from './Card.module.scss'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 

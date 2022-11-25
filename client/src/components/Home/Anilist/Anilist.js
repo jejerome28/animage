@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import style from './Anilist.module.css'
+import style from './Anilist.module.scss'
 import ListItem from "./ListItem/ListItem";
 import Title from "../../Title/Title";
 import { getTopAni } from "../../../actions/getData";

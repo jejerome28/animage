@@ -1,5 +1,5 @@
 import React from "react";
-import style from '../Details.module.css'
+import style from '../Details.module.scss'
 import PropTypes from 'prop-types'
 import Title from "../../Title/Title";
 

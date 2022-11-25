@@ -1,6 +1,6 @@
 import React, {Suspense} from "react";
 
-import style from './Home.module.css'
+import style from './Home.module.scss'
 import Slider from "./Slider/Slider";
 import Anilist from "./Anilist/Anilist";
 
