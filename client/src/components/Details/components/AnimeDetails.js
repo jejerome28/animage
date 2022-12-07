@@ -10,13 +10,13 @@ const AnimeDetails = ({details})=>{
         <>
         <Title title={'Anime Details'}/>
         <div className={style.ani_details}>
-            <p>Date aired: {details.aired.string}</p>
-            <p>Score: {details.score}</p>
-            <p>Rating: {details.rating}</p>
-            <span>Studios: </span>{studios.map(studio => (<span key={studio.mal_id}>{studio.name} </span>))}
-            <p>Episodes: {details.episodes}</p>
-            <p>Status: {details.status}</p>
-            <span>Genres: </span>{genres.map(genre => (<span key={genre.mal_id}>{genre.name} </span>))}
+            <p>Date aired: </p> <p>{details.aired.string}</p>
+            <p>Score: </p> <p>{details.score}</p>
+            <p>Rating: </p><p>{details.rating}</p>
+            <p>Studios: </p>{studios.map(studio => (<p key={studio.mal_id}>{studio.name} </p>))}
+            <p>Episodes: </p><p>{details.episodes}</p>
+            <p>Status: </p><p></p>
+            <p>Genres: </p>{genres.map(genre => (<p key={genre.mal_id}>{genre.name} </p>))}
         </div>
         </>
     )
