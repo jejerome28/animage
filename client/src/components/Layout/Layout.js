@@ -9,7 +9,7 @@ import {  Routes, Route} from 'react-router-dom'
 const Layout = ()=> {
     return(
         <>
-        <div className={style.wrapper}>
+        <div className={style.wrapper + ' font-sans'}>
             <div className={style.nav}>
                 <Navbar/>
             </div>
