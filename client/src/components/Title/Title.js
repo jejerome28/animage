@@ -1,11 +1,10 @@
 import React from "react";
-import style from './Title.module.css'
 import PropTypes from 'prop-types'
 
 const Title = ({title})=>{
     return(
         <>
-        <h2 className={style.title}>
+        <h2 className='text-2xl mb-4 text-complement1 font-semibold'>
             {title}
         </h2>
         </>

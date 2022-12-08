@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import style from './Slider.module.scss'
 import Card from "../Card/Card";
 import { getSznAni } from "../../../actions/getData";
 import Title from "../../Title/Title";
@@ -17,9 +16,9 @@ const Slider = () =>{
     
     return(
         <>
-        <div className={style.title}>
+        <div className='flex flex-col w-slider-w mb-12 mt-12'>
             <Title title={'Top season anime'}/>
-            <div className={style.wrapper}>
+            <div className='flex w-slider-w mb-12'>
                 {results.map(ani=>(<Card anime={ani} key={ani.mal_id}/>))}
             </div>
         </div>

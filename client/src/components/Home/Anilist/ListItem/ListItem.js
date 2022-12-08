@@ -1,16 +1,17 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import style from '../Anilist.module.scss'
 import PropTypes from 'prop-types'
 
 const ListItem = ({anime})=>{
     return(
         <>
-        <div className={style.list}>
-                <img src={anime.images.webp.image_url} alt='anime pic' ></img>
-                <div className={style.details}>
+        <div className='flex mb-4 bg-accent2 rounded-md'>
+                <img src={anime.images.webp.image_url} alt='anime pic' className="mr-4 w-20 p-2 rounded-md" ></img>
+                <div>
+                    <section className="text-complement1 mb-12 mt-1 font-semibold">
                     <Link to={`/details/`+ anime.mal_id}>{anime.title}</Link>
-                    {anime.genres.map((genre, index) => (<span key={anime.mal_id + index}>{genre.name}</span>))}
+                    </section>
+                    {anime.genres.map((genre, index) => (<span className="mr-4 text-complement1" key={anime.mal_id + index}>{genre.name}</span>))}
                 </div>
         </div>
         </>
