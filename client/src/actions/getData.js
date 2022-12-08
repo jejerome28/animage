@@ -16,7 +16,7 @@ export const getTopAni = async (set_state)=> {
 export const getSznAni = async (set_state)=> {
     try{
         const sznAni = await getAnime(`${url}/`);
-        set_state(sznAni.seasonAnime.slice(0,10));
+        set_state(sznAni.seasonAnime.slice(0,6));
         console.log(sznAni);
 
     }catch(e){
