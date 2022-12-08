@@ -10,8 +10,8 @@ const Card = ({anime})=>{
 
                 <Link to={`/details/`+ anime.mal_id}>
                     <img src={anime.images.webp.image_url} className='rounded-md w-36 h-56 mb-4' alt='anime pic' ></img>
-                </Link>
                     <p className="text-md text-complement1">{anime.title}</p>
+                </Link>
             </Suspense>
         </div>
         </>
