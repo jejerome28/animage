@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const Card = ({anime})=>{
     return(
         <>
-        <div className='mr-4 items-center w-36 drop-shadow-xl'>
+        <div className='mr-4 items-center w-36 drop-shadow-xl cursor-pointer hover:scale-125 ease-in duration-300'>
             <Suspense fallback={(<h1>loading..</h1>)}>
 
                 <Link to={`/details/`+ anime.mal_id}>
