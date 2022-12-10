@@ -1,5 +1,4 @@
 import React from "react";
-import style from '../Details.module.scss'
 import PropTypes from 'prop-types'
 import Title from "../../Title/Title";
 
@@ -8,8 +7,8 @@ const Synopsis = ({synopsis})=>{
     return(
         <>
         <Title title={'Synopsis'}/>
-        <div className={style.synopsis}>
-            <p>{synopsis.synopsis}</p>
+        <div className='bg-accent2 p-4 text-accent1 font-regular drop-shadow-xl leading-6 rounded-md mb-12'>
+            <p className="leading-6">{synopsis.synopsis}</p>
         </div>
         </>
     )
