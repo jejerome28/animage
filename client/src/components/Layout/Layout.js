@@ -5,6 +5,7 @@ import Footer from "../Footer/Footer";
 import Details from "../Details/Details";
 import {  Routes, Route} from 'react-router-dom'
 import Login from "../Login/Login";
+import Signup from "./Signup";
 
 const Layout = ()=> {
     return(
@@ -16,6 +17,7 @@ const Layout = ()=> {
                     {/* to show details components when an anime link is clicked */}
                     <Route path="/details/:id" element={<Details/>}/>
                     <Route path="/login" element={<Login/>}/>
+                    <Route path="/signup" element={<Signup/>}/>
                 </Routes>
                 <Footer/>
         </div>
