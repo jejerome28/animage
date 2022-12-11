@@ -11,7 +11,7 @@ export default function Login () {
                     <input type={'text'} id='name' placeholder="Username" className="block mb-4 w-full"></input>
                     <input type={'password'} id='password' placeholder="Password" className="block mb-4 w-full"></input>
                     <button type="submit" className="bg-accent1 p-1 rounded-md mr-4">Login</button>
-                    <a href="/">{"Don't have an account?"}</a>
+                    <a href="/signup">{"Don't have an account?"}</a>
                 </form>
             </div>
         </>
