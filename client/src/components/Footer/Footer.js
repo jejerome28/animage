@@ -1,10 +1,9 @@
 import React from "react";
-import style from './Footer.module.scss'
 
 const Footnote = () => {
     return (
         <>
-        <div className={style.footer}>
+        <div className='left-0 bottom-0 w-full'>
             <h2>footer</h2>
         </div>
         </>
