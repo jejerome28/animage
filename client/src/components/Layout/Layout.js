@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 import Details from "../Details/Details";
 import {  Routes, Route} from 'react-router-dom'
 import Login from "../Login/Login";
-import Signup from "./Signup";
+import Signup from "../Login/Signup";
 
 const Layout = ()=> {
     return(
