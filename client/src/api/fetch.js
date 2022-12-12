@@ -14,12 +14,12 @@ const getAnime = async (url, params={}) => {
     }
 }
 
-const postNewUser = async (url, params={}) => {
+const postNewUser = async (url, data) => {
     try{
         const results = await axios({
             url: url,
             method: 'POST',
-            params: params
+            data: data
         })
         return results.data
     }

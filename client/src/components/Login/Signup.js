@@ -1,8 +1,7 @@
 import React from "react";
 import Title from "../Title/Title";
 import { useState } from "react";
-// import { postNewUser } from "../../api/fetch";
-import axios from "axios";
+import { postNewUser } from "../../api/fetch";
 
 export default function Signup () {
     
@@ -17,17 +16,7 @@ export default function Signup () {
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
-        try{
-            e.preventDefault();
-            await axios({
-                method: 'post',
-                url: '/signup',
-                data: results
-            })
-        }
-        catch(e){
-            console.log(e.message)
-        }
+        postNewUser('/signup', results);
         
     }
 

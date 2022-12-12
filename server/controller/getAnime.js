@@ -83,9 +83,8 @@ const signupPage = (req,res)=>{
 //getting the input values sent by frontend
 const signupPost = async (req, res)=>{
     try{
-        // await createUser(req.body.username,req.body.password);
-        res.status(200).redirect('/login');
-        console.log(req.body.username);
+        await createUser(req.body.username,req.body.password);
+        res.status(200).send('account created');
 
     }catch(e){
         res.status(404).json({message:e.message});
