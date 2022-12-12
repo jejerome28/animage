@@ -14,4 +14,21 @@ const getAnime = async (url, params={}) => {
     }
 }
 
-export default getAnime;
+const postNewUser = async (url, params={}) => {
+    try{
+        const results = await axios({
+            url: url,
+            method: 'POST',
+            params: params
+        })
+        return results.data
+    }
+    catch(e){
+        console.log(e.message)
+    }
+}
+
+export {
+    getAnime,
+    postNewUser
+}

@@ -1,4 +1,4 @@
-import getAnime from "../api/fetch";
+import {getAnime} from "../api/fetch";
 
 const url = 'http://localhost:5000';
 
