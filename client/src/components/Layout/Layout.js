@@ -12,14 +12,16 @@ const Layout = ()=> {
         <>
         <div className= 'font-sans bg-main-color min-h-screen'>
                 <Navbar/>
-                <Routes>
-                    <Route index element={<Home/>}/>
-                    {/* to show details components when an anime link is clicked */}
-                    <Route path="/details/:id" element={<Details/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/signup" element={<Signup/>}/>
-                </Routes>
-                <Footer/>
+                <div className="flex flex-col items-center">
+                    <Routes>
+                        <Route index element={<Home/>}/>
+                        {/* to show details components when an anime link is clicked */}
+                        <Route path="/details/:id" element={<Details/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/signup" element={<Signup/>}/>
+                    </Routes>
+                    <Footer/>
+                </div>
         </div>
         </>
     )

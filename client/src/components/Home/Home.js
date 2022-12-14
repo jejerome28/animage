@@ -1,19 +1,14 @@
-import React, {Suspense} from "react";
-
-import Slider from "./Slider/Slider";
-import Anilist from "./Anilist/Anilist";
-
+import React from "react";
+import Card from "./Card";
+import ListItem from "./ListItem";
 
 const Home = () =>{
     return(
         <>
-        <Suspense fallback={(<h1>loading..</h1>)}>
-
-            <div className="flex flex-col items-center">
-                <Slider/>
-                <Anilist/>
-            </div>
-        </Suspense>
+        <div className="flex flex-col w-slider-w mb-12 mt-12">
+            <Card/>
+            <ListItem />
+        </div>
         </>
     )
 }
