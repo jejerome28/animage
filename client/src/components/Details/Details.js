@@ -2,7 +2,7 @@ import React from "react";
 // import { getDetails } from "../../actions/getData";
 // import { useState, useEffect } from "react";
 // import { useParams } from "react-router-dom";
-// import Image from "./components/Image";
+import Image from "./components/Image";
 import AnimeDetails from "./components/AnimeDetails";
 // import Synopsis from "./components/Synopsis";
 // import Characters from "./components/Characters";
@@ -29,7 +29,7 @@ const Details = ()=>{
         <div className='grid grid-cols-12 gap-2'>
             <div className='col-start-4 col-end-6'>
 
-                {/* <Image/> */}
+                <Image/>
                 {/* {ani_details  ?  
                 <Image anime={ani_details}/> : (<h1>loading..</h1>)} */}
 

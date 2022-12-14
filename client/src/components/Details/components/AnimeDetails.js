@@ -26,7 +26,6 @@ const AnimeDetails = ()=>{
                     <p className="font-semibold">Status: </p><p className="text-accent1 mb-4">{ani_details.status}</p>
                     <p className=" font-semibold mb-2">Genres: </p>{genres.map(genre => (<p className="text-accent1" key={genre.mal_id}>{genre.name} </p>))}
                 </div>
-
             </div>
         ) : (<h1>loading...</h1>)}
         </>

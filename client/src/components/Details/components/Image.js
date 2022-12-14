@@ -14,12 +14,9 @@ const Image = ()=>{
     return(
         <>
             {ani_details ?  
-
                 (<div>
-
-            <Title title={ani_details.title_english}/>
-            <img src={ani_details.images.webp.image_url} className='h-96 rounded-lg w-60 mb-12' alt={'anime pic'}></img>
-
+                    <Title title={ani_details.title_english}/>
+                    <img src={ani_details.images.webp.image_url} className='h-96 rounded-lg w-60 mb-12' alt={'anime pic'}></img>
                 </div>)
             
             : (<h1>loading...</h1>)}
