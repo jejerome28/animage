@@ -1,14 +1,15 @@
 import React from "react";
 import Title from "../../Title/Title";
 import PropTypes from 'prop-types';
-import useFetch from "../../../actions/useFetch";
+// import useFetch from "../../../actions/useFetch";
+import useDetails from "../../../actions/useDetails";
 import { useParams } from "react-router-dom";
 
 const Image = ()=>{
     
     const {id} = useParams();
     const url = `http://localhost:5000/details/${id}`;
-    const {ani_details} = useFetch(url);
+    const {ani_details} = useDetails(url);
 
     
     return(

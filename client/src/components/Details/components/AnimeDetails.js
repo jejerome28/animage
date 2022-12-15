@@ -1,20 +1,21 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import Title from "../../Title/Title";
-import useFetch from "../../../actions/useFetch";
+// import useFetch from "../../../actions/useFetch";
+import useDetails from "../../../actions/useDetails";
 import { useParams } from "react-router-dom";
 
 const AnimeDetails = ()=>{
 
     const {id} = useParams();
     const url = `http://localhost:5000/details/${id}`;
-    const {ani_details} = useFetch(url);
+    const {ani_details} = useDetails(url);
     
     const {genres} = ani_details;
     const {studios} = ani_details;
     return(
         <>
-        {ani_details  ? (
+        {ani_details&&genres&&studios  ? (
             <div>
                 <Title title={'Anime Details'}/>
                 <div className='bg-accent2 rounded-md pl-4 p-4 text-complement1 w-60 drop-shadow-xl'>
