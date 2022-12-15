@@ -2,14 +2,13 @@ import React from "react";
 import PropTypes from 'prop-types'
 import Title from "../../Title/Title";
 // import useFetch from "../../../actions/useFetch";
-import useDetails from "../../../actions/useDetails";
-import { useParams } from "react-router-dom";
+// import useDetails from "../../../actions/useDetails";
+// import { useParams } from "react-router-dom";
 
-const AnimeDetails = ()=>{
+const AnimeDetails = ({ani_details})=>{
 
-    const {id} = useParams();
-    const url = `http://localhost:5000/details/${id}`;
-    const {ani_details} = useDetails(url);
+    // const {id} = useParams();
+    // const {ani_details} = useDetails(id);
     
     const {genres} = ani_details;
     const {studios} = ani_details;
@@ -34,7 +33,7 @@ const AnimeDetails = ()=>{
 }
 
 AnimeDetails.propTypes = {
-    details: PropTypes.object
+    ani_details: PropTypes.object
 }
 
 export default AnimeDetails;

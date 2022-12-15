@@ -1,7 +1,7 @@
 import React from "react";
 // import { getDetails } from "../../actions/getData";
 // import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Image from "./components/Image";
 import AnimeDetails from "./components/AnimeDetails";
 // import Synopsis from "./components/Synopsis";
@@ -9,6 +9,7 @@ import AnimeDetails from "./components/AnimeDetails";
 import PropTypes from 'prop-types'
 // import Title from "../Title/Title";
 // import Comments from "./components/Comments";
+import useDetails from "../../actions/useDetails";
 
 
 const Details = ()=>{
@@ -22,6 +23,8 @@ const Details = ()=>{
     // },[id])
     
     // const {ani_details, cast_details, comments} = allDetails;
+    const {id} = useParams();
+    const {ani_details} = useDetails(id);
 
     //to use the objects rendered to display details
     return(
@@ -29,15 +32,13 @@ const Details = ()=>{
         <div className='grid grid-cols-12 gap-2'>
             <div className='col-start-4 col-end-6'>
 
-                {/* {<Image/> ? <Image/> : (<h1>loading</h1>)} */}
-                <Image/>
-                {/* {ani_details  ?  
-                <Image anime={ani_details}/> : (<h1>loading..</h1>)} */}
+                {/* <Image/> */}
+                  
+                <Image ani_details={ani_details}/> 
 
-                {/* {<AnimeDetails/> ? <AnimeDetails/> : (<h1>loading</h1>)} */}
-                <AnimeDetails/>
-                {/* {ani_details  ?  
-                <AnimeDetails details={ani_details}/> : (<h1>loading..</h1>)} */}
+                {/* <AnimeDetails/> */}
+                
+                <AnimeDetails ani_details={ani_details}/>
             </div>
 
             <div className='col-start-6 col-end-11'>

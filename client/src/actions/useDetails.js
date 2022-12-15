@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import { getAnime } from "../api/fetch";
 
 //set custom hook to be used by the component to fetch data
-const useDetails = (url, params) => {
+const useDetails = (id, params) => {
     const [isLoading, setLoading] = useState(true)
     const [ani_details, setAniDetails] = useState([]);
-    const [casts, setCasts] = useState('');
+    const [casts, setCasts] = useState([]);
     const [comments, setComments] = useState([]);
+
+    const url = `http://localhost:5000/details/${id}`;
 
    useEffect(()=>{
       
@@ -35,7 +37,7 @@ const useDetails = (url, params) => {
 
       }
       animes()
-   },[url,params])
+   },[])
 
    //returns array of object
    return {ani_details, casts, comments};
