@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { getDetails } from "../../actions/getData";
-// import { useState, useEffect } from "react";
+import { useState  } from "react";
 import { useParams } from "react-router-dom";
 import Image from "./components/Image";
 import AnimeDetails from "./components/AnimeDetails";
@@ -14,7 +14,7 @@ import useDetails from "../../actions/useDetails";
 
 const Details = ()=>{
 
-    // const [allDetails, setDetails]= useState([]);
+    const [allDetails, setDetails]= useState([]);
 
     // const {id} = useParams();
 
@@ -24,7 +24,12 @@ const Details = ()=>{
     
     // const {ani_details, cast_details, comments} = allDetails;
     const {id} = useParams();
-    const {ani_details} = useDetails(id);
+    useEffect(()=>{
+     const {ani_details} = useDetails(id);
+    
+     setDetails(ani_details)
+    },[])
+
 
     //to use the objects rendered to display details
     return(
@@ -34,11 +39,12 @@ const Details = ()=>{
 
                 {/* <Image/> */}
                   
-                <Image ani_details={ani_details}/> 
+                {allDetails ? <Image allDetails={allDetails}/> : (<h1>loading</h1>)}
+                 
 
                 {/* <AnimeDetails/> */}
                 
-                <AnimeDetails ani_details={ani_details}/>
+                {allDetails ? <AnimeDetails allDetails={allDetails}/> : (<h1>loading</h1>)}
             </div>
 
             <div className='col-start-6 col-end-11'>

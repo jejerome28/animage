@@ -14,7 +14,6 @@ const AnimeDetails = ({ani_details})=>{
     const {studios} = ani_details;
     return(
         <>
-        {ani_details&&genres&&studios  ? (
             <div>
                 <Title title={'Anime Details'}/>
                 <div className='bg-accent2 rounded-md pl-4 p-4 text-complement1 w-60 drop-shadow-xl'>
@@ -27,7 +26,6 @@ const AnimeDetails = ({ani_details})=>{
                     <p className=" font-semibold mb-2">Genres: </p>{genres.map(genre => (<p className="text-accent1" key={genre.mal_id}>{genre.name} </p>))}
                 </div>
             </div>
-        ) : (<h1>loading...</h1>)}
         </>
     )
 }

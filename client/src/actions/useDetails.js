@@ -4,6 +4,7 @@ import { getAnime } from "../api/fetch";
 
 //set custom hook to be used by the component to fetch data
 const useDetails = (id, params) => {
+   //set state for the components
     const [isLoading, setLoading] = useState(true)
     const [ani_details, setAniDetails] = useState([]);
     const [casts, setCasts] = useState([]);
@@ -13,15 +14,16 @@ const useDetails = (id, params) => {
 
    useEffect(()=>{
       
-      const animes = async()=>{
+      //create async function to get anime details
+       async()=>{
          try{
+            //get anime and destructure the results
             const results = await getAnime(url, params);
-            const {ani_details} = results;
-            const {casts} = results;
-            const {comments} = results;
+            const {ani_details, cast_details, comments} = results;
             
+            //set results to the state
             setAniDetails(ani_details);
-            setCasts(casts);
+            setCasts(cast_details);
             setComments(comments);
             setLoading(false);
             
@@ -36,7 +38,6 @@ const useDetails = (id, params) => {
          }
 
       }
-      animes()
    },[])
 
    //returns array of object
