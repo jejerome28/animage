@@ -1,14 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import Title from "../../Title/Title";
-// import useFetch from "../../../actions/useFetch";
-// import useDetails from "../../../actions/useDetails";
-// import { useParams } from "react-router-dom";
 
 const AnimeDetails = ({ani_details})=>{
-
-    // const {id} = useParams();
-    // const {ani_details} = useDetails(id);
     
     const {genres} = ani_details;
     const {studios} = ani_details;

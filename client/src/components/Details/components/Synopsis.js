@@ -16,7 +16,7 @@ const Synopsis = ({synopsis})=>{
 
 
 Synopsis.propTypes = {
-    synopsis: PropTypes.string
+    synopsis: PropTypes.object
 }
 
 export default Synopsis;
