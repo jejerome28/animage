@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-// import { getAnime } from "../api/fetch";
 
 //set custom hook to be used by the component to fetch data
 const useFetch = (url) => {
