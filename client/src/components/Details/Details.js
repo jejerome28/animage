@@ -1,6 +1,4 @@
-import React  from "react";
-// import { getDetails } from "../../actions/getData";
-// import { useState, useEffect  } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Image from "./components/Image";
 import AnimeDetails from "./components/AnimeDetails";
@@ -14,15 +12,8 @@ import useFetch from "../../actions/useFetch";
 
 const Details = ()=>{
 
-    // const [allDetails, setDetails]= useState([]);
-
     const {id} = useParams();
     const url = `http://localhost:5000/details/${id}`;
-    
-
-    // useEffect(()=>{
-    //     getDetails(setDetails,id);
-    // },[])
     
     const {ani_details, cast_details, comments} = useFetch(url);
     

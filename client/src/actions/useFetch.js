@@ -1,17 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getAnime } from "../api/fetch";
+import axios from 'axios';
+// import { getAnime } from "../api/fetch";
 
 //set custom hook to be used by the component to fetch data
-const useFetch = (url, params) => {
+const useFetch = (url) => {
    const [isLoading, setLoading] = useState(true);
    const [res, setRes] = useState([]);
    useEffect(()=>{
       
       const animes = async()=>{
          try{
-            const results = await getAnime(url, params);
-            setRes(results);
+            const results = await axios.get(url);
+            setRes(results.data);
             setLoading(false);
             if(isLoading){
                {return(<><h1>loading</h1></>)}
@@ -22,7 +23,7 @@ const useFetch = (url, params) => {
 
       }
       animes()
-   },[])
+   },[url])
 
    //returns array of object
    return res
