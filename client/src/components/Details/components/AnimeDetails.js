@@ -8,7 +8,6 @@ const AnimeDetails = ({ani_details})=>{
     const {studios} = ani_details;
     return(
         <>
-            <div>
                 <Title title={'Anime Details'}/>
                 <div className='bg-accent2 rounded-md pl-4 p-4 text-complement1 w-60 drop-shadow-xl'>
                     <p className="font-semibold">Date aired: </p><p className="text-accent1 mb-4">{ani_details.aired.string}</p>
@@ -19,7 +18,6 @@ const AnimeDetails = ({ani_details})=>{
                     <p className="font-semibold">Status: </p><p className="text-accent1 mb-4">{ani_details.status}</p>
                     <p className=" font-semibold mb-2">Genres: </p>{genres.map(genre => (<p className="text-accent1" key={genre.mal_id}>{genre.name} </p>))}
                 </div>
-            </div>
         </>
     )
 }
