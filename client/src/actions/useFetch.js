@@ -14,7 +14,7 @@ const useFetch = (url) => {
             setRes(results.data);
             setLoading(false);
             
-            if(isLoading) {return(<><h1>loading</h1></>)}
+            if(isLoading) return(<><h1>loading</h1></>)
             
          }catch(e){
             console.log(e)
