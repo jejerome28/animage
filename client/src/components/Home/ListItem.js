@@ -1,20 +1,14 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import PropTypes from 'prop-types'
-import useFetch from "../../actions/useFetch"
-import Title from "../Title/Title"
 
-const ListItem = ()=>{
-    //get anime list from server using custom hook
-    const url = 'http://localhost:5000';
-    const {topAnimes} = useFetch(url);
+const ListItem = ({ani_details,children})=>{
 
     return(
         <>
-        <Title title={'Top popular anime'}/>
-        
+
         {/*map thru the array of objects and render in to the elements*/}
-        {topAnimes ? topAnimes.map(anime => 
+        {ani_details ? ani_details.map(anime => 
         <Link key={anime.mal_id} to={`/details/`+ anime.mal_id}>
             <div className='flex mb-4 bg-accent2 rounded-md cursor-pointer hover:scale-110 ease-in duration-300'>
                     <img src={anime.images.webp.image_url} alt='anime pic' className="mr-4 w-20 p-2 rounded-md" ></img>
@@ -28,12 +22,14 @@ const ListItem = ()=>{
         </Link>
             
         ): (<h1>loading..</h1>)}
+        {children}
         </>
     )
 }
 
 ListItem.propTypes = {
-    anime: PropTypes.object
+    ani_details: PropTypes.array,
+    children: PropTypes.object
 }
 
 
