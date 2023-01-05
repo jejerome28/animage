@@ -6,6 +6,7 @@ import Details from "../Details/Details";
 import {  Routes, Route} from 'react-router-dom'
 import Login from "../Login/Login";
 import Signup from "../Login/Signup";
+import Browse from "../Browse/Browse";
 
 const Layout = ()=> {
     return(
@@ -19,6 +20,7 @@ const Layout = ()=> {
                         <Route path="/details/:id" element={<Details/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/signup" element={<Signup/>}/>
+                        <Route path="/browse" element={<Browse/>}/>
                     </Routes>
                     <Footer/>
                 </div>
