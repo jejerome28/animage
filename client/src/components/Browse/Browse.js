@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../Home/Card";
-// import {Link} from 'react-router-dom'
 import useFetch from "../../actions/useFetch";
 import Title from "../Title/Title";
 
