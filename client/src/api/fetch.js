@@ -28,7 +28,23 @@ const postNewUser = async (url, data) => {
     }
 }
 
+const getUser = async (url, data) => {
+    try{
+        const results = await axios({
+            url: url,
+            method: 'POST',
+            data: data,
+            withCredentials: true
+        })
+        return results.data
+    }
+    catch(e){
+        console.log(e.message)
+    }
+}
+
 export {
     getAnime,
-    postNewUser
+    postNewUser,
+    getUser
 }

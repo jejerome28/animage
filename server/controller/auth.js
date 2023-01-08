@@ -9,7 +9,7 @@ const auth = (passport, username) => {
         const userAccount = await user.findOne({ username });
         const isValid = await bcrypt.compare(password, userAccount.password)
         
-        console.log(isValid);
+        console.log(isValid,userAccount);
         
         if(!userAccount){return done(null,false)}
         if(isValid){return done(null, userAccount)}

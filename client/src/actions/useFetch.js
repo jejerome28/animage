@@ -8,6 +8,7 @@ const useFetch = (url) => {
    const [res, setRes] = useState([]);
    useEffect(()=>{
       
+      setLoading(true);
       const animes = async()=>{
          try{
             const results = await axios.get(url);
