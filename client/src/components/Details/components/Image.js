@@ -15,7 +15,7 @@ const Image = ()=>{
     const {ani_details} = useContext(DetailsResult);
     return(
         <>
-            {ani_details ? 
+            {/* {ani_details ? 
             
             <div>
             <Title title={ani_details.title_english}/>
@@ -24,6 +24,13 @@ const Image = ()=>{
             </div>
             : (<h1>loading</h1>)
         
+        } */}
+        {ani_details && 
+            <>
+            <Title title={ani_details.title_english}/>
+            <img src={ani_details.images.webp.image_url} className='h-97 rounded-lg w-60 mb-12' alt={'anime pic'}></img>
+            </>
+        || (<h1>loding</h1>)
         }
             
         </>
