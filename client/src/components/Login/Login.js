@@ -1,15 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Title from "../Title/Title";
 import { useState } from "react";
-// import { getUser } from "../../api/fetch";
 import axios from 'axios';
 
 export default function Login () {
     //set the state for the values of forms
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    // const [user, setUser] = useState('');
+    const [user, setUser] = useState('');
 
     //store in an object to be sent to the server
     const results = {username: username, password:password} ;
@@ -19,26 +18,24 @@ export default function Login () {
         try{
         e.preventDefault();
 
-        // const res = await axios('/login', results)
-        const res = await axios({
-            method:'POST',
-            data: results,
-            withCredentials:true,
-            url: '/login'
-        })
+            const res = await axios({
+                method:'POST',
+                data: results,
+                withCredentials:true,
+                url: '/login'
+            })
+            
+            if(res.status === 200){
+                setUser(res.data.username);
+                console.log('form sent');
+            }
+            else{
+                console.log('error occured');
+            }
 
-        if(res.status === 200){
-            console.log('form sent');
-            // return redirect("/")
-        }
-        else{
-            console.log('error occured');
-        }
-
-        console.log(res)
         }
         catch(e){
-            console.log(e)
+            console.log(e.message)
         }
         // postNewUser('/login', results);
         // console.log(results);
@@ -46,6 +43,9 @@ export default function Login () {
     }
     return(
         <>
+            {user ? <Navigate to={'/'}/>
+                :
+        
             <div className="m-auto w-fit min-h-screen ">
                 <Title title={'Login page'}/>
                 <form onSubmit={handleSubmit} className="p-4 bg-accent2 rounded-md drop-shadow-xl">
@@ -55,6 +55,9 @@ export default function Login () {
                     <Link to="/signup">{"Don't have an account?"}</Link>
                 </form>
             </div>
+        }
         </>
     )
 }
+
+

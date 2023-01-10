@@ -26,7 +26,7 @@ const aniDetails = async(req,res)=>{
     try{
         const {id} = req.params;
         const ani_details = await getAnime(`https://api.jikan.moe/v4/anime/${id}`);
-        const cast_details = await getAnime(`https://api.jikan.moe/v4/anime/${id}/characters`)
+const cast_details = await getAnime(`https://api.jikan.moe/v4/anime/${id}/characters`)
         const comments = await getComments(id)
         
         // res.render('details', {ani_details, cast_details,comments});
@@ -98,7 +98,24 @@ const loginPage = (req,res)=>{
 }
 
 // authenticate login credentials
-const login = passport.authenticate('local', {successRedirect:'/', failureRedirect:'/signup'})
+
+// const login = passport.authenticate('local', {successRedirect:'/', failureRedirect:'/signup'})
+const login =  (req, res)=>{
+          passport.authenticate('local', {successRedirect:'/', failureRedirect:'/signup'},(err,user,info)=>{
+            if(err)throw err;
+            if(!user){
+                res.status(404).json({message: 'no user exists'});
+                console.log('no user exists');
+            }
+            else{
+                req.logIn(user,(err)=>{
+                    if(err)throw err;
+                    res.status(200).json(req.user)
+                    // console.log(req.user);
+                })
+            }
+        })(req,res);
+}
 
 // logout user
 const logout = (req,res)=>{
@@ -122,6 +139,6 @@ module.exports = {
     login,
     logout,
     loginPage,
-    userProfile
+    userProfile,
 }
 

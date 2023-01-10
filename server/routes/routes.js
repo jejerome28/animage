@@ -1,5 +1,5 @@
 const express = require('express');
-const { animeHome, aniDetails, aniSearch, signupPage, signupPost, login, logout, postComment, loginPage, userProfile } = require('../controller');
+const { animeHome, aniDetails,login, aniSearch, signupPage, signupPost, logout, postComment, loginPage, userProfile } = require('../controller');
 const router = express.Router();
 const {checkAuth, checkNotAuth} = require('../middleware')
 
