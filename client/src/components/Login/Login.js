@@ -1,46 +1,50 @@
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import Title from "../Title/Title";
-import { useState } from "react";
-import axios from 'axios';
+import PropTypes from 'prop-types';
+// import { useState } from "react";
+// import axios from 'axios';
+import { useContext } from "react";
+import { LoggedUser } from "../Layout/loggedContext";
 
-export default function Login () {
+export default function Login ({setUsername,setPassword, handleSubmit}) {
     //set the state for the values of forms
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [user, setUser] = useState('');
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [user, setUser] = useState('');
 
-    //store in an object to be sent to the server
-    const results = {username: username, password:password} ;
+    // //store in an object to be sent to the server
+    // const results = {username: username, password:password} ;
 
-    //send the object to the server for storage
-    const handleSubmit = async (e) =>{
-        try{
-        e.preventDefault();
+    // //send the object to the server for storage
+    // const handleSubmit = async (e) =>{
+    //     try{
+    //     e.preventDefault();
 
-            const res = await axios({
-                method:'POST',
-                data: results,
-                withCredentials:true,
-                url: '/login'
-            })
+    //         const res = await axios({
+    //             method:'POST',
+    //             data: results,
+    //             withCredentials:true,
+    //             url: '/login'
+    //         })
             
-            if(res.status === 200){
-                setUser(res.data.username);
-                console.log('form sent');
-            }
-            else{
-                console.log('error occured');
-            }
+    //         if(res.status === 200){
+    //             setUser(res.data.username);
+    //             console.log('form sent');
+    //         }
+    //         else{
+    //             console.log('error occured');
+    //         }
 
-        }
-        catch(e){
-            console.log(e.message)
-        }
-        // postNewUser('/login', results);
-        // console.log(results);
+    //     }
+    //     catch(e){
+    //         console.log(e.message)
+    //     }
+    //     // postNewUser('/login', results);
+    //     // console.log(results);
         
-    }
+    // }
+    const user = useContext(LoggedUser);
     return(
         <>
             {user ? <Navigate to={'/'}/>
@@ -60,4 +64,9 @@ export default function Login () {
     )
 }
 
+Login.propTypes = {
+    setUsername: PropTypes.func,
+    setPassword: PropTypes.func,
+    handleSubmit: PropTypes.func
+}
 
