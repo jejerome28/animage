@@ -33,12 +33,12 @@ const Details = ()=>{
             </div>
         
             <div className="col-start-5 col-end-10 mb-6 px-4 py-3 bg-accent2 text-complement1 rounded-md drop-shadow-xl">
-                    <Comments/>
-                    <form>
-                        <textarea  className='resize-none w-full rounded-md p-1' placeholder="Tell others what do you think...">
-                        </textarea>
-                        <button className="block ml-auto rounded-md bg-complement1 text-accent2 p-1 m-2" type="submit">Comment!</button>
-                    </form>
+                <Comments/>
+                <form>
+                    <textarea  className='resize-none w-full rounded-md p-1' placeholder="Tell others what do you think...">
+                    </textarea>
+                    <button className="block ml-auto rounded-md bg-complement1 text-accent2 p-1 m-2" type="submit">Comment!</button>
+                </form>
         
 
             </div>
