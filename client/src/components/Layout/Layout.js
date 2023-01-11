@@ -32,7 +32,7 @@ const Layout = ()=> {
             })
             
             if(res.status === 200){
-                setUser(res.data.username);
+                setUser(res.data);
                 console.log('form sent');
             }
             else{

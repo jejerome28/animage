@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 const Navbar = ({handleLogout}) => {
     const user = useContext(LoggedUser);
-    console.log(user);
+    // console.log(user);
     return(
         <>
         <div className= 'flex justify-center bg-complement1 mb-14 drop-shadow-xl tracking-widest'>
@@ -18,7 +18,7 @@ const Navbar = ({handleLogout}) => {
             {
                 user ? 
                 <>
-                <Link to='/login' className="text-accent1 text-sm font-bold m-4 ml-auto mr-2">Hello, {user}</Link> 
+                <Link to='/login' className="text-accent1 text-sm font-bold m-4 ml-auto mr-2">Hello, {user.username}</Link> 
                 <Link to='/' className="text-accent1 text-sm font-bold m-4 mr-8">
                     <button type="submit" onClick={handleLogout}>Logout</button>
                 </Link>
