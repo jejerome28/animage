@@ -43,15 +43,26 @@ const Layout = ()=> {
         catch(e){
             console.log(e.message)
         }
-        // postNewUser('/login', results);
-        // console.log(results);
-        
+    }
+    
+    const handleLogout = async()=>{
+        try{
+            const res = await axios({
+                method:'DELETE',
+                url: '/logout'
+            })
+            setUser(res.data)
+            console.log(res)
+        }
+        catch(e){
+            console.log(e.message)
+        }
     }
     return(
         <>
         <div className= 'font-sans bg-main-color min-h-screen'>
         <LoggedUser.Provider value={user}>
-                <Navbar/>
+                <Navbar handleLogout={handleLogout}/>
                 <div className="flex flex-col items-center">
                     <Routes>
                         <Route index element={<Home/>}/>
