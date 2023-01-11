@@ -123,7 +123,7 @@ const logout = (req,res)=>{
         if(err){
             throw err
         }
-        res.redirect('/');
+        res.status(200).json(req.user);
 
     });
 }
