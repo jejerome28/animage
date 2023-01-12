@@ -1,13 +1,12 @@
 import React from "react";
-// import style from './Navbar.module.scss'
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { LoggedUser } from "../Layout/loggedContext";
 import PropTypes from 'prop-types'
 
 const Navbar = ({handleLogout}) => {
+    //get user logged in using context
     const user = useContext(LoggedUser);
-    // console.log(user);
     return(
         <>
         <div className= 'flex justify-center bg-complement1 mb-14 drop-shadow-xl tracking-widest'>

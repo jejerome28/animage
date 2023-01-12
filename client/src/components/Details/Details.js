@@ -20,7 +20,7 @@ const Details = ()=>{
     
     return(
         <>  
-        <DetailsResult.Provider value={{ani_details, cast_details, comments}}>
+        <DetailsResult.Provider value={{ani_details, cast_details, comments, id}}>
         <div className='grid grid-cols-12 gap-2'>
             <div className='col-start-4 col-end-6'>
                 <Image/>
