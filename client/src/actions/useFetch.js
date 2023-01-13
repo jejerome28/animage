@@ -23,7 +23,7 @@ const useFetch = (url) => {
 
       }
       animes()
-   },[url])
+   },[])
 
    //returns array of object
    return res
