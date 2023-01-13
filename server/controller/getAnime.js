@@ -56,7 +56,8 @@ const postComment = async(req,res)=>{
         const new_comment = await createComment(id, req.body.addComment, req.user.id);
         await addToUserComments(req.user._id, new_comment.id);
 
-        res.redirect(`/details/${id}`);
+        res.status(200).json(new_comment);
+        // res.redirect(`/details/${id}`);
     }catch(e){
         console.log(e);
     }
@@ -111,12 +112,12 @@ const login =  (req, res)=>{
                 req.logIn(user,(err)=>{
                     if(err)throw err;
                     res.status(200).json(req.user)
-                    // console.log(req.user);
+                    console.log(req.user);
                 })
             }
         })(req,res);
 }
-
+// 
 // logout user
 const logout = (req,res)=>{
     req.logOut((err)=>{

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Home from "../Home/Home";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -34,6 +34,8 @@ const Layout = ()=> {
             if(res.status === 200){
                 setUser(res.data);
                 console.log('form sent');
+                localStorage.setItem('user', JSON.stringify(res.data));
+                console.log(res.data);
             }
             else{
                 console.log('error occured');
@@ -53,11 +55,23 @@ const Layout = ()=> {
             })
             setUser(res.data)
             console.log(res)
+            localStorage.clear();
         }
         catch(e){
             console.log(e.message)
         }
     }
+    
+    useEffect(()=>{
+        const loggedIn = localStorage.getItem('user');
+        if(loggedIn){
+            setUser(JSON.parse(loggedIn));
+            // const found = loggedIn
+            console.log(user);
+            console.log(loggedIn);
+        }
+    }, [])
+
     return(
         <>
         <div className= 'font-sans bg-main-color min-h-screen'>
