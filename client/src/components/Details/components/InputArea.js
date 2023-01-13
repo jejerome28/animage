@@ -13,13 +13,14 @@ const InputArea = ({children})=> {
         try{
             e.preventDefault();
             
-            const res = await axios({
+            await axios({
                 method: 'POST',
                 data: {addComment:comment},
                 url: `/details/${id}/post_comment`
             })
-            
-            console.log(res);
+           
+            setComment(comment);
+            location.reload();
         }
         catch(e){
             console.log(e.message)
