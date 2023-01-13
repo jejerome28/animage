@@ -5,8 +5,8 @@ import { DetailsResult } from "../detailsResult";
 import Title from "../../Title/Title";
 
 const Comments = ()=>{
+    //use the context
     const {comments} = useContext(DetailsResult);
-    // const {user_id:{username}} = comments
     return(
         <>
             <Title title={'Comments'}/>
