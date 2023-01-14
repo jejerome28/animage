@@ -7,19 +7,20 @@ import useFetch from "../../actions/useFetch";
 import { DetailsResult } from "./detailsResult";
 import Characters from "./components/Characters";
 import Synopsis from "./components/Synopsis";
-import Comments from "./components/Comments";
 import InputArea from "./components/InputArea";
 
 const Details = ()=>{
 
+    //get the id for request
     const {id} = useParams();
-    const url = `http://localhost:5000/details/${id}`;
+    const url = `/details/${id}`;
 
-
+    //to get the details sent by the server
     const {ani_details,cast_details, comments} = useFetch(url);
     
     return(
         <>  
+        {/* provide the context values to the components*/}
         <DetailsResult.Provider value={{ani_details, cast_details, comments, id}}>
         <div className='grid grid-cols-12 gap-2'>
             <div className='col-start-4 col-end-6'>
@@ -34,7 +35,6 @@ const Details = ()=>{
             </div>
         
             <div className="col-start-5 col-end-10 mb-6 px-4 py-3 bg-accent2 text-complement1 rounded-md drop-shadow-xl">
-                <Comments/>
                 <InputArea/>
 
             </div>
