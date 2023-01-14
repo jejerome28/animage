@@ -55,8 +55,9 @@ const postComment = async(req,res)=>{
         const {id} = req.params;
         const new_comment = await createComment(id, req.body.addComment, req.user.id);
         await addToUserComments(req.user._id, new_comment.id);
+        const comments = await getComments(id)
 
-        res.status(200).json(new_comment);
+        res.status(200).json(comments);
         // res.redirect(`/details/${id}`);
     }catch(e){
         console.log(e);
