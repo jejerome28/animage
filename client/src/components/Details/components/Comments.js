@@ -7,8 +7,7 @@ const Comments = ({comments})=>{
     return(
         <>
             <Title title={'Comments'}/>
-            {comments ?  comments.map(comment => ( <p key={comment._id}>{comment.body} ----- <span>{comment.user_id.username}</span></p>)) : (<h1>loading</h1>)
-        }
+            {comments ?  comments.map(comment => ( <p key={comment._id}>{comment.body} ----- <span>{comment.user_id.username}</span></p>)) : (<h1>loading</h1>) }
         </>
     )
 }
