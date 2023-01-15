@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-env": "^7.20.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.2.5",
+    "babel-jest": "^29.3.1",
     "circular-dependency-plugin": "^5.2.2",
     "i": "^0.3.7",
     "prop-types": "^15.8.1",
@@ -48,5 +51,10 @@
     "eslint": "^8.28.0",
     "eslint-plugin-react": "^7.31.11"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
+  }
 }
