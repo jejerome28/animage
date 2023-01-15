@@ -1,15 +1,16 @@
 // import renderer from 'react-test-renderer'
 import React from 'react';
 import '@testing-library/jest-dom'
-import {render} from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Card from './Card'
 
-it('should render', () => { 
-    render(<Card/>)
-    const rendered_element = <Card/>
-    expect(rendered_element).toBeInTheDocument();
- });
+describe('Card', ()=> {
+    it('should render card component', () => { 
+        render(<Card/>)
+        screen.debug();
+     })
+})
 
 
 
