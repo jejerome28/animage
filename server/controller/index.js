@@ -1,5 +1,5 @@
-const { animeHome, aniDetails, aniSearch, signupPage, signupPost, login, logout, postComment, loginPage, userProfile } = require('./getAnime');
+const { animeHome, aniDetails, aniSearch, signupPage, signupPost, login, logout, postComment, loginPage, userProfile, updateProfile } = require('./getAnime');
 const getAnime = require('./fetchApi');
 const auth = require('./auth');
 
-module.exports = {  animeHome, aniDetails, aniSearch, signupPage, signupPost, login, logout, postComment, loginPage, getAnime, auth, userProfile }
+module.exports = {  animeHome, aniDetails, aniSearch, signupPage, signupPost, login, logout, postComment, loginPage, getAnime, auth, userProfile, updateProfile }
