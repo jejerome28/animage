@@ -43,7 +43,8 @@ const userProfile = async (req, res)=> {
     try{
         const {id} = req.params;
         const profile = await getUserComments(id);
-        res.render('profile', {logged:req.user, profile});
+        // res.render('profile', {logged:req.user, profile});
+        res.status(200).json(profile);
     }catch(e){
         console.log(e);
     }

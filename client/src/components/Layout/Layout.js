@@ -7,6 +7,7 @@ import {  Routes, Route} from 'react-router-dom'
 import Login from "../Login/Login";
 import Signup from "../Login/Signup";
 import Browse from "../Browse/Browse";
+import User from "../User/User";
 import { useState } from "react";
 import axios from 'axios';
 import { LoggedUser } from "./loggedContext";
@@ -89,6 +90,7 @@ const Layout = ()=> {
                         />}/>
                         <Route path="/signup" element={<Signup/>}/>
                         <Route path="/browse" element={<Browse/>}/>
+                        <Route path="/profile/:id" element={<User/>}/>
                     </Routes>
                     <Footer/>
                 </div>
