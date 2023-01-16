@@ -26,7 +26,7 @@ const aniDetails = async(req,res)=>{
     try{
         const {id} = req.params;
         const ani_details = await getAnime(`https://api.jikan.moe/v4/anime/${id}`);
-const cast_details = await getAnime(`https://api.jikan.moe/v4/anime/${id}/characters`)
+        const cast_details = await getAnime(`https://api.jikan.moe/v4/anime/${id}/characters`)
         const comments = await getComments(id)
         
         // res.render('details', {ani_details, cast_details,comments});
@@ -43,8 +43,10 @@ const userProfile = async (req, res)=> {
     try{
         const {id} = req.params;
         const profile = await getUserComments(id);
-        // res.render('profile', {logged:req.user, profile});
-        res.status(200).json(profile);
+        
+        //filter details to be sent
+        const {username, comments} = profile;
+        res.status(200).json({username, comments});
     }catch(e){
         console.log(e);
     }
@@ -62,6 +64,15 @@ const postComment = async(req,res)=>{
         // res.redirect(`/details/${id}`);
     }catch(e){
         console.log(e);
+    }
+}
+
+const updateProfile = async(req,res) => {
+    try{
+        //todo: post details to users
+    }
+    catch(e){
+        console.log(e.message);
     }
 }
 
@@ -143,5 +154,6 @@ module.exports = {
     logout,
     loginPage,
     userProfile,
+    updateProfile
 }
 
