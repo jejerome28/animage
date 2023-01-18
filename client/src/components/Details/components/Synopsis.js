@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import Title from "../../Title/Title";
-import { useContext } from "react";
-import { DetailsResult } from "../detailsResult";
 
 
-const Synopsis = ()=>{
-    const {ani_details} = useContext(DetailsResult);
+const Synopsis = ({ani_details})=>{
     
     return(
         <>
@@ -23,7 +20,7 @@ const Synopsis = ()=>{
 
 
 Synopsis.propTypes = {
-    synopsis: PropTypes.object
+    ani_details: PropTypes.object
 }
 
 export default Synopsis;

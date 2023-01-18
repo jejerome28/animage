@@ -1,13 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import { useContext } from "react";
-import { DetailsResult } from "../detailsResult";
 
-const Characters = ()=> {
-    const {cast_details} = useContext(DetailsResult);
-    // const {character, voice_actors} = cast_details;
-    
-    // const {character:{images:{webp:{image_url}}}} = cast_details
+const Characters = ({cast_details})=> {
     
     return(
         <>
@@ -53,7 +47,7 @@ const Characters = ()=> {
 }
 
 Characters.propTypes ={
-    casts: PropTypes.object
+    cast_details: PropTypes.array
 }
 
 export default Characters;

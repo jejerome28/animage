@@ -1,17 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import Title from "../../Title/Title";
-import { useContext } from "react";
-import { DetailsResult } from "../detailsResult";
 
-const AnimeDetails = ()=>{
+const AnimeDetails = ({ani_details})=>{
     
-    const {ani_details} = useContext(DetailsResult);
     return(
         <>
-                {ani_details ? 
-                
-                <div>
+            {ani_details ? 
+            <>
                 <Title title={'Anime Details'}/>
                 <div className='bg-accent2 rounded-md pl-4 p-4 text-complement1 w-60 drop-shadow-xl'>
                     <p className="font-semibold">Date aired: </p><p className="text-accent1 mb-4">{ani_details.aired.string}</p>
@@ -22,9 +18,8 @@ const AnimeDetails = ()=>{
                     <p className="font-semibold">Status: </p><p className="text-accent1 mb-4">{ani_details.status}</p>
                     <p className=" font-semibold mb-2">Genres: </p><div>{ani_details.genres.map(genre => (<p className="text-accent1" key={genre.mal_id}>{genre.name} </p>))}</div>
                 </div>
-
-                </div>
-                : (<h1>loading</h1>)
+            </>
+            : (<h1>loading</h1>)
             
             }
         </>
