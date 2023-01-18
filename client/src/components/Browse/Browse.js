@@ -2,16 +2,48 @@ import React from "react";
 import Card from "../Home/Card";
 import useFetch from "../../actions/useFetch";
 import Title from "../Title/Title";
+import { useState } from "react";
+import axios from 'axios';
+import Search from "./Search";
 
 
 const Browse = ()=> {
     const url = 'http://localhost:5000';
     const {topAnimes, seasonAnime} = useFetch(url);
+    
+    const [results, setResults] = useState([]);
+    const [input, setInput]= useState('');
+    console.log(results);
+    
+    const handleSearch = async(e)=>{
+        try{
+            e.preventDefault();
+            const res = await axios({
+                method: 'POST',
+                data: {search:input},
+                url: '/search'
+            })
+            
+            setResults(res.data.ani_results);
+            setInput('');
+            console.log(res);
+
+            console.log(res)
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+
     return(
         <>
+
+        <Search handleSearch={handleSearch} setInput={setInput} input={input}/>
         <Title title={'Browse anime'}/>
+
         <Title title={'Top Season Anime'}/>
         {seasonAnime && <Card ani_details={seasonAnime.slice(0,6)}/>}
+
         <Title title={'Top Popular Anime'}/>
         {topAnimes && <Card ani_details={topAnimes.slice(0,6)}/>}
         </>
