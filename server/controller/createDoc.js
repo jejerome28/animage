@@ -1,4 +1,4 @@
-const {user, comment} = require('../model');
+const { user, comment, playlist } = require('../model');
 const bcrypt = require('bcrypt');
 
 const createComment = async(anime_id, commentBody, userId)=>{
@@ -14,8 +14,15 @@ const createUser = async(username, password)=>{
     return newAccount;
 }
 
+const createPlaylist = async(anime_id, ani_title, userId)=>{
+    const new_playlist = new playlist({anime_id: anime_id, body: ani_title, user_id: userId});
+    await new_playlist.save();
+    return new_playlist;
+}
+
 
 module.exports = {
     createComment,
-    createUser
+    createUser,
+    createPlaylist
 }
