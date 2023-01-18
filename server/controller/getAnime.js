@@ -92,7 +92,7 @@ const updateProfile = async(req,res) => {
         
         //add to the profile of the user the details
         await addToUserPlaylist(id, new_playlist.id);
-        
+        res.status(200);
     }
     catch(e){
         res.status(404).json({message: e});
@@ -104,7 +104,8 @@ const updateProfile = async(req,res) => {
 const aniSearch =  async(req,res)=>{
 try{
         const ani_results = await getAnime(`https://api.jikan.moe/v4/anime`, {q: req.body.search})
-        res.render('search', {ani_results, search:req.body.search});
+        // res.render('search', {ani_results, search:req.body.search});
+        res.status(200).json({ani_results});
      
     }catch(e){
         console.log(e.message);
