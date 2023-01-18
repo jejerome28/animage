@@ -1,9 +1,10 @@
 const passport = require('passport');
 const getAnime = require('./fetchApi');
 const {getComments, getUserComments} = require('./populateCommentUser');
+const { getUserPlaylist, getPlaylist } = require('./populatePlaylistUser');
 const {addToUserComments} = require('./postCommentUser');
-const {createComment, createUser} = require('./createDoc');
-const { comment } = require('../model');
+const {addToUserPlaylist} = require('./postPlaylist');
+const {createComment, createUser, createPlaylist} = require('./createDoc');
 
 
 //landing page display top airing and top season anime
@@ -31,7 +32,7 @@ const aniDetails = async(req,res)=>{
         
         // res.render('details', {ani_details, cast_details,comments});
         res.status(200).json({ani_details, cast_details, comments})
-        console.log(comments);
+        // console.log(comments);
     }catch(e){
         res.status(404).json({message: e.message})
         console.log(e.message);
@@ -41,12 +42,18 @@ const aniDetails = async(req,res)=>{
 //get user profile
 const userProfile = async (req, res)=> {
     try{
+        //get the id of the user then pass to query
         const {id} = req.params;
-        const profile = await getUserComments(id);
+        const allComments = await getUserComments(id);
+        const allPlaylist = await getUserPlaylist(id);
         
         //filter details to be sent
-        const {username, comments} = profile;
-        res.status(200).json({username, comments});
+        const {username, comments} = allComments;
+        const {playlist} = allPlaylist;
+        // console.log(allPlaylist);
+
+        //send the details to front end
+        res.status(200).json({username, comments, playlist});
     }catch(e){
         console.log(e);
     }
@@ -55,24 +62,41 @@ const userProfile = async (req, res)=> {
 //post comments to comments part
 const postComment = async(req,res)=>{
     try{
+        //get the id of the anime being commented
         const {id} = req.params;
+        
+        //send the received comment to the database
         const new_comment = await createComment(id, req.body.addComment, req.user.id);
+        
+        //send the id of the new comment to tthe user model for tracking
         await addToUserComments(req.user._id, new_comment.id);
+        
+        // get and send the updated comments of the user
         const comments = await getComments(id)
+        console.log(id);
+        res.status(200).json({comments});
 
-        res.status(200).json(comments);
-        // res.redirect(`/details/${id}`);
     }catch(e){
+        res.status(404).json({message: e})
         console.log(e);
     }
 }
 
 const updateProfile = async(req,res) => {
     try{
-        //todo: post details to users
+        //get the id from the browser
+        const {id} = req.params;
+
+        //accept the data sent by react and add to parameters
+        const new_playlist = await createPlaylist(req.body.anime_id,req.body.ani_title, req.body.userId);
+        
+        //add to the profile of the user the details
+        await addToUserPlaylist(id, new_playlist.id);
+        
     }
     catch(e){
-        console.log(e.message);
+        res.status(404).json({message: e});
+        console.log(e);
     }
 }
 
