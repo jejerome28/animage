@@ -8,7 +8,8 @@ const ListItem = ({ani_details,children})=>{
         <>
 
         {/*map thru the array of objects and render in to the elements*/}
-        {ani_details ? ani_details.map(anime => 
+        {/* {ani_details ? ani_details.map(anime =>  */}
+        {ani_details.map(anime => 
         <Link key={anime.mal_id} to={`/details/`+ anime.mal_id}>
             <div className='flex mb-4 bg-accent2 rounded-md cursor-pointer hover:scale-110 ease-in duration-300'>
                     <img src={anime.images.webp.image_url} alt='anime pic' className="mr-4 w-20 p-2 rounded-md" ></img>
@@ -19,9 +20,8 @@ const ListItem = ({ani_details,children})=>{
                         {anime.genres.map((genre, index) => (<span className="mr-4 text-complement1" key={anime.mal_id + index}>{genre.name}</span>))}
                     </div>
             </div>
-        </Link>
-            
-        ): (<h1>loading..</h1>)}
+        </Link>)}
+        {/* ): (<h1>loading..</h1>)} */}
         {children}
         </>
     )
