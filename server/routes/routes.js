@@ -7,7 +7,7 @@ const {checkAuth, checkNotAuth} = require('../middleware')
 router.get('/', animeHome)
 router.get('/details/:id', aniDetails);
 router.post('/details/:id/post_comment', checkAuth, postComment);
-router.post('/update_profile', updateProfile)
+router.post('/update_profile/:id', updateProfile)
 router.post('/search', aniSearch);
 router.get('/signup', checkNotAuth, signupPage);
 router.post('/signup', signupPost);
