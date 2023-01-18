@@ -11,9 +11,9 @@ const Browse = ()=> {
         <>
         <Title title={'Browse anime'}/>
         <Title title={'Top Season Anime'}/>
-        <Card ani_details={seasonAnime}/>
+        {seasonAnime && <Card ani_details={seasonAnime.slice(0,6)}/>}
         <Title title={'Top Popular Anime'}/>
-        <Card ani_details={topAnimes}/>
+        {topAnimes && <Card ani_details={topAnimes.slice(0,6)}/>}
         </>
     )
 }

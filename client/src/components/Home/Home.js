@@ -11,9 +11,11 @@ const Home = () =>{
         <>
         <div className="flex flex-col w-slider-w mb-12 mt-12">
             <Title title={'Top Season Anime'}/>
-            <Card ani_details={seasonAnime}/>
+            {seasonAnime && <Card ani_details={seasonAnime.slice(0,6)}/>}
+            
             <Title title={'Top Popular Anime'}/>
-            <ListItem ani_details={topAnimes}/>
+            {topAnimes && <ListItem ani_details={topAnimes}/>}
+            
         </div>
         </>
     )
