@@ -40,7 +40,9 @@ const Browse = ()=> {
 
         <Search handleSearch={handleSearch} setInput={setInput} input={input}/>
         <Title title={'Browse anime'}/>
-
+        
+        {results && <><Title title={'Top Season Anime'}/><Card ani_details={results}/></>}
+        
         <Title title={'Top Season Anime'}/>
         {seasonAnime && <Card ani_details={seasonAnime.slice(0,6)}/>}
 
