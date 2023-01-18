@@ -7,6 +7,10 @@ const UserSchema = new mongoose.Schema({
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'comment'
+    }],
+    playlist: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'playlist'
     }]
 })
 
