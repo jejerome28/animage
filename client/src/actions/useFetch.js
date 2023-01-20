@@ -4,18 +4,18 @@ import axios from 'axios';
 
 //set custom hook to be used by the component to fetch data
 const useFetch = (url) => {
-   const [isLoading, setLoading] = useState(true);
+   const [isLoading, setLoading] = useState(false);
    const [res, setRes] = useState([]);
    useEffect(()=>{
       
-      setLoading(true);
       const animes = async()=>{
          try{
+            setLoading(true);
             const results = await axios.get(url);
             setRes(results.data);
             setLoading(false);
             
-            if(isLoading) return(<><h1>loading</h1></>)
+            if(isLoading) return(<><h1>nagloload</h1></>)
             
          }catch(e){
             console.log(e)
