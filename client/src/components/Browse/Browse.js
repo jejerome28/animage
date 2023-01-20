@@ -13,6 +13,7 @@ const Browse = ()=> {
     
     const [results, setResults] = useState([]);
     const [input, setInput]= useState('');
+    const [searched, setSearched] = useState('');
     console.log(results);
     
     const handleSearch = async(e)=>{
@@ -26,6 +27,7 @@ const Browse = ()=> {
             
             setResults(res.data.ani_results);
             setInput('');
+            setSearched(input);
             console.log(res);
 
             console.log(res)
@@ -41,7 +43,8 @@ const Browse = ()=> {
         <Search handleSearch={handleSearch} setInput={setInput} input={input}/>
         <Title title={'Browse anime'}/>
         
-        {results && <><Title title={'Top Season Anime'}/><Card ani_details={results}/></>}
+        {searched && <Title title={`Results for: ${searched} anime`}/>}
+        {results && <><Card ani_details={results}/></>}
         
         <Title title={'Top Season Anime'}/>
         {seasonAnime && <Card ani_details={seasonAnime.slice(0,6)}/>}
