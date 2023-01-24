@@ -16,7 +16,7 @@ const Home = () =>{
             {seasonAnime && <Card ani_details={seasonAnime.slice(0, 6)} /> || <LoadingCard number={6}/>}
             
             <Title title={'Top Popular Anime'}/>
-                {topAnimes && <ListItem ani_details={topAnimes.slice(0,10)}/> || <LoadingList number={10}/>}
+            {topAnimes && <ListItem ani_details={topAnimes.slice(0,10)}/> || <LoadingList number={10}/>}
 
             
         </div>
