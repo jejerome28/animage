@@ -1,3 +1,4 @@
+require('dotenv').config({path: '../.env'});
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -5,9 +6,8 @@ const mongoose = require('mongoose');
 const {user} = require('./model');
 const passport = require('passport');
 const session = require('express-session');
-const dbString = 'mongodb://localhost:27017/aniMage';
 const mongoStore = require('connect-mongo');
-const storeSession = mongoStore.create({mongoUrl:dbString, collectionName: 'sessions'});
+const storeSession = mongoStore.create({mongoUrl:process.env.MONGO_URI, collectionName: 'sessions'});
 const routes = require('./routes');
 const method_override = require('method-override');
 const {auth} = require('./controller');
@@ -20,6 +20,12 @@ const limiter = rateLimit({
 	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 })
+if (process.env.NODE_ENV === 'production') {
+    //*Set static folder up in production
+    app.use(express.static('client/build'));
+
+    app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
+  }
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -51,7 +57,7 @@ auth(
 
 
 //create custom connection
-mongoose.createConnection(dbString, (err,result)=>{if(err)throw err; console.log('connected')})
+mongoose.createConnection(process.env.MONGO_URI, (err,result)=>{if(err)throw err; console.log('connected')})
 
 
 //use all routes
