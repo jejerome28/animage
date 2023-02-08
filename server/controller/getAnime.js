@@ -149,6 +149,7 @@ const login =  (req, res)=>{
             else{
                 req.logIn(user,(err)=>{
                     if(err)throw err;
+                    res.header("Access-Control-Allow-Origin", "*")
                     res.status(200).json(req.user)
                     console.log(req.user);
                 })
