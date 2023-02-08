@@ -13,6 +13,7 @@ const method_override = require('method-override');
 const {auth} = require('./controller');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
+const port  = process.env.PORT || 5000
 
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
@@ -67,6 +68,6 @@ app.use('/', routes);
 
 
 
-app.listen(5000, ()=>{
-    console.log('listening on port 5000');
+app.listen(port, ()=>{
+    console.log(`listening on port ${port}`);
 })
