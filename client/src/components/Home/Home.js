@@ -7,7 +7,7 @@ import LoadingCard from "../Core/LoadingCard";
 import LoadingList from "../Core/LoadingList";
 
 const Home = () =>{
-    const url = 'http://localhost:5000';
+    const url = 'https://animage.onrender.com';
     const {seasonAnime, topAnimes} = useFetch(url);
     return(
         <>
