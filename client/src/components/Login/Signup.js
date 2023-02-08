@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../Title/Title";
 import { useState } from "react";
-import { postNewUser } from "../../api/fetch";
+import axios from 'axios'
 
 export default function Signup () {
     
@@ -16,7 +16,7 @@ export default function Signup () {
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
-        postNewUser('/signup', results);
+        axios.post('https://animage.onrender.com/signup', results);
         
     }
 
