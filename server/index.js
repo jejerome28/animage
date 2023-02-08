@@ -31,7 +31,7 @@ const limiter = rateLimit({
 
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');
-app.use(cors({credentials:true}));
+app.use(cors({credentials:false}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
