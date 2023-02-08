@@ -1,5 +1,6 @@
+require('dotenv').config({path: '../.env'});
 const mongoose = require('mongoose');
-const conn = mongoose.createConnection('mongodb://localhost:27017/aniMage')
+const conn = mongoose.createConnection(process.env.MONGO_URI)
 
 const commentSchema = new mongoose.Schema({
     anime_id: String,
