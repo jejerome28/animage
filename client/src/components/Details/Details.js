@@ -12,7 +12,7 @@ const Details = ()=>{
 
     //get the id for request
     const {id} = useParams();
-    const url = `http://localhost:5000/details/${id}`;
+    const url = `https://animage.onrender.com/details/${id}`;
 
     //to get the details sent by the server
     const {ani_details, cast_details, comments} = useFetch(url);

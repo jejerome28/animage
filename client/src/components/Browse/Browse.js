@@ -8,7 +8,7 @@ import Search from "./Search";
 
 
 const Browse = ()=> {
-    const url = 'http://localhost:5000';
+    const url = 'https://animage.onrender.com';
     const {topAnimes, seasonAnime} = useFetch(url);
     
     const [results, setResults] = useState([]);
