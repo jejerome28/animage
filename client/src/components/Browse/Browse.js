@@ -22,7 +22,7 @@ const Browse = ()=> {
             const res = await axios({
                 method: 'POST',
                 data: {search:input},
-                url: '/search'
+                url: `${url}/search`
             })
             
             setResults(res.data.ani_results);
