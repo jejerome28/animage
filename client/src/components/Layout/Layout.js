@@ -29,7 +29,7 @@ const Layout = ()=> {
                 method:'POST',
                 data: results,
                 withCredentials:true,
-                url: '/login'
+                url: 'https://animage.onrender.com/login'
             })
             
             if(res.status === 200){
@@ -52,7 +52,7 @@ const Layout = ()=> {
         try{
             const res = await axios({
                 method:'DELETE',
-                url: '/logout'
+                url: 'https://animage.onrender.com/logout'
             })
             setUser(res.data)
             console.log(res)
