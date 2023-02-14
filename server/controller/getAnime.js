@@ -149,7 +149,7 @@ const login =  (req, res)=>{
             else{
                 req.logIn(user,(err)=>{
                     if(err)throw err;
-                    res.header("Access-Control-Allow-Origin", "https://animage.onrender.com")
+                    // res.header("Access-Control-Allow-Origin", "https://animage.onrender.com")
                     res.status(200).json(req.user)
                     console.log(req.user);
                 })
