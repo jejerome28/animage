@@ -34,7 +34,7 @@ const limiter = rateLimit({
 app.use(cors({credentials:true}));
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true, origin: "*"}));
 
 app.use(method_override('_method'));
 // app.use(express.static(path.join(__dirname, '/public')));
