@@ -31,7 +31,7 @@ const limiter = rateLimit({
 
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');
-app.use(cors({credentials: false, origin: "https://animage.onrender.com"}));
+app.use(cors({credentials: false, origin: "*"}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
