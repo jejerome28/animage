@@ -5,7 +5,7 @@ import axios from 'axios'
 import Comments from "./Comments"
 
 const InputArea = ({id, comments, children})=> {
-    
+    const url = 'https://animage.onrender.com';
     // set initial value of the state of comments
     const [comment, setComment] = useState([]);
     const [input, setInput ] = useState('');
@@ -28,7 +28,7 @@ const InputArea = ({id, comments, children})=> {
             const res = await axios({
                 method: 'POST',
                 data: {addComment:input},
-                url: `/details/${id}/post_comment`
+                url: `${url}/details/${id}/post_comment`
             })
            
             setComment(res.data.comments);
