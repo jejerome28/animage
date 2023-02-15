@@ -28,7 +28,7 @@ const Layout = ()=> {
             const res = await axios({
                 method:'POST',
                 data: results,
-                withCredentials:true,
+                withCredentials:false,
                 url: 'https://animage.onrender.com/login'
             })
             
