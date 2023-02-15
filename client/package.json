@@ -51,7 +51,6 @@
     "eslint": "^8.28.0",
     "eslint-plugin-react": "^7.31.11"
   },
-  "homepage": "https://animage.onrender.com",
   "jest": {
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
