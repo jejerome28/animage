@@ -28,7 +28,6 @@ const InputArea = ({id, comments, children})=> {
             const res = await axios({
                 method: 'POST',
                 data: {addComment:input},
-                withCredentials: false,
                 url: `${url}/details/${id}/post_comment`
             })
            
