@@ -5,6 +5,7 @@ import Title from "../Title/Title";
 import { useState } from "react";
 import axios from 'axios';
 import Search from "./Search";
+import LoadingCard from "../Core/LoadingCard";
 
 
 const Browse = ()=> {
@@ -14,7 +15,7 @@ const Browse = ()=> {
     const [results, setResults] = useState([]);
     const [input, setInput]= useState('');
     const [searched, setSearched] = useState('');
-    console.log(results);
+    // console.log(results);
     
     const handleSearch = async(e)=>{
         try{
@@ -28,9 +29,8 @@ const Browse = ()=> {
             setResults(res.data.ani_results);
             setInput('');
             setSearched(input);
-            console.log(res);
 
-            console.log(res)
+            // console.log(res)
         }
         catch(e){
             console.log(e)
@@ -47,10 +47,10 @@ const Browse = ()=> {
         {results && <><Card ani_details={results}/></>}
         
         <Title title={'Top Season Anime'}/>
-        {seasonAnime && <Card ani_details={seasonAnime.slice(0,6)}/>}
+        {seasonAnime && <Card ani_details={seasonAnime.slice(0,6)}/> || <LoadingCard number={6}/>}
 
         <Title title={'Top Popular Anime'}/>
-        {topAnimes && <Card ani_details={topAnimes.slice(0,6)}/>}
+        {topAnimes && <Card ani_details={topAnimes.slice(0,6)}/> || <LoadingCard number={6}/>}
         </>
     )
 }

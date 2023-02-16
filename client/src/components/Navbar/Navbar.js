@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 const Navbar = ({handleLogout}) => {
     //get user logged in using context
     const user = useContext(LoggedUser);
-    console.log(user);
+    // console.log(user);
     return(
         <>
         <div className= 'flex justify-center bg-complement1 mb-14 drop-shadow-xl tracking-widest'>

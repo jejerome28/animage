@@ -33,7 +33,7 @@ const InputArea = ({id, comments, children})=> {
            
             setComment(res.data.comments);
             setInput('');
-            console.log(res);
+            // console.log(res);
         }
         catch(e){
             console.log(e.message)
