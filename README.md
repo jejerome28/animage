@@ -1,6 +1,9 @@
 # animage
 Anime website that uses MAL api to fetch anime data, comment on specific anime, create own account and browse for the top anime of the current season. Uses reactJS, tailwindcss for frontend and expressJS, mongodb for the backend.
 
+link to site can be found here: https://animage.vercel.app/
+the free tier backend can be slow
+
 Technologies used:
 React JS
 Express JS
