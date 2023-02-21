@@ -13,12 +13,11 @@ const Home = () =>{
         <>
         <div className="flex flex-col md:w-9/12 mb-12 mt-12">
             <Title title={'Top Season Anime'}/>
-            {seasonAnime && <Card ani_details={seasonAnime.slice(0, 8)} /> || <LoadingCard number={6}/>}
+            {seasonAnime && <Card ani_details={seasonAnime.slice(0, 8)} /> || <LoadingCard number={8}/>}
             
             <Title title={'Top Popular Anime'}/>
             {topAnimes && <ListItem ani_details={topAnimes.slice(0,10)}/> || <LoadingList number={10}/>}
 
-            
         </div>
         </>
     )
