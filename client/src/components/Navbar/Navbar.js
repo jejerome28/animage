@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { LoggedUser } from "../Layout/loggedContext";
 import PropTypes from 'prop-types'
 
 const Navbar = ({handleLogout}) => {
     //get user logged in using context
+    const [show, setShow] = useState(false);
     const user = useContext(LoggedUser);
-    // console.log(user);
+    
+    const handleClick = () => {
+        if(show === true) {
+            setShow(false)
+            return;
+        }
+        setShow(true);
+    }
     return(
         <>
-        <div className= 'flex justify-center bg-complement1 mb-14 drop-shadow-xl tracking-widest'>
+        <div className="text-center bg-complement1 py-4 border-b-2 border-accent1 lg:hidden ">
+            <div onClick={handleClick} className="space-y-2 pl-4 float-left">
+                <div className="w-8 h-0.5 bg-accent1"></div>
+                <div className="w-8 h-0.5 bg-accent1"></div>
+                <div className="w-8 h-0.5 bg-accent1"></div>
+            </div>
+            <Link to='/' className="text-accent1 text-sm font-bold mr-8 ">ANIMAGE</Link>
+        </div>
+        {show && 
+            <nav  className="flex flex-col bg-complement1 h-screen">
+                <Link onClick={handleClick} to='/' className="text-accent1 text-sm font-bold m-4">HOME</Link>
+                <Link onClick={handleClick} to='/browse' className="text-accent1 text-sm font-bold m-4">BROWSE</Link>
+                <Link onClick={handleClick} to='/forum' className="text-accent1 text-sm font-bold m-4">FORUM</Link>
+            </nav>
+        }
+        <div className= 'hidden lg:flex justify-center bg-complement1 mb-14 drop-shadow-xl tracking-widest'>
             <Link to='/' className="text-accent1 text-sm font-bold m-4 mr-auto ml-36">LOGO</Link>
             <Link to='/' className="text-accent1 text-sm font-bold m-4">HOME</Link>
             <Link to='/browse' className="text-accent1 text-sm font-bold m-4">BROWSE</Link>
